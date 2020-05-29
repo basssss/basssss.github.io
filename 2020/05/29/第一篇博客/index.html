@@ -9,11 +9,11 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    第一篇博客 |  Hexo
+    第一篇博客 |  Baco&#39;s Blog
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
-  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="shortcut icon" href="/images/ayer-side.jpeg" />
   
   
 <link rel="stylesheet" href="/dist/main.css">
@@ -33,7 +33,7 @@
 
   
 
-<link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="Baco's Blog" type="application/atom+xml">
 </head>
 
 </html>
@@ -205,61 +205,35 @@
   
 
   
+
   
-<!-- valine评论 -->
-<div id="vcomments-box">
-    <div id="vcomments">
-    </div>
-</div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
-<script>
-    new Valine({
-        el: '#vcomments',
-        app_id: '',
-        app_key: '',
-        path: window.location.pathname,
-        notify: false,
-        verify: false,
-        avatar: 'monsterid',
-        placeholder: '给我的文章加点评论吧~',
-        recordIP: true
-    });
-    const infoEle = document.querySelector('#vcomments .info');
-    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
-        infoEle.childNodes.forEach(function (item) {
-            item.parentNode.removeChild(item);
-        });
-    }
+  
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css">
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'd4d169252c8910f83133',
+    clientSecret: '42ec84bd600a6a2370858b87b84fe849d2c1bede',
+    repo: 'basssss.github.io',
+    owner: 'basssss',
+    admin: ['basssss'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
 </script>
-<style>
-    #vcomments-box {
-        padding: 5px 30px;
-    }
 
-    @media screen and (max-width: 800px) {
-        #vcomments-box {
-            padding: 5px 0px;
-        }
-    }
-
-    #vcomments-box #vcomments {
-        background-color: #fff;
-    }
-
-    .v .vlist .vcard .vh {
-        padding-right: 20px;
-    }
-
-    .v .vlist .vcard {
-        padding-left: 10px;
-    }
-</style>
-
-  
-
-  
-  
   
   
   
@@ -327,7 +301,7 @@
 <nav class="navbar">
   
   <div class="logo">
-    <a href="/"><img src="/images/ayer-side.svg" alt="Hexo"></a>
+    <a href="/"><img src="/images/ayer-side.jpeg" alt="Baco&#39;s Blog"></a>
   </div>
   
   <ul class="nav nav-main">
@@ -349,11 +323,11 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+      <a class="nav-item-link" href="/photos">相册</a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/2019/about">关于我</a>
+      <a class="nav-item-link" href="/aboutme">关于我</a>
     </li>
     
   </ul>
@@ -392,19 +366,9 @@
 <!-- #reward -->
 <div id="reward">
   <span class="close"><i class="ri-close-line"></i></span>
-  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <p class="reward-p"><i class="ri-cup-line"></i>二维码待定......</p>
   <div class="reward-box">
     
-    <div class="reward-item">
-      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
-      <span class="reward-type">支付宝</span>
-    </div>
-    
-    
-    <div class="reward-item">
-      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
-      <span class="reward-type">微信</span>
-    </div>
     
   </div>
 </div>
@@ -415,21 +379,6 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Subtitle -->
-
-<script>
-  try {
-    var typed = new Typed("#subtitle", {
-      strings: ['面朝大海，春暖花开', '', '想要的都拥有，得不到的都释怀'],
-      startDelay: 0,
-      typeSpeed: 200,
-      loop: true,
-      backSpeed: 100,
-      showCursor: true
-    });
-  } catch (err) {
-    console.log(err)
-  }
-</script>
 
 <!-- Tocbot -->
 

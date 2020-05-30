@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-28T16:18:31.139Z</updated>
+  <updated>2020-05-30T08:08:10.712Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2020/05/29/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
     <id>http://yoursite.com/2020/05/29/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</id>
     <published>2020-05-28T16:09:47.000Z</published>
-    <updated>2020-05-28T16:18:31.139Z</updated>
+    <updated>2020-05-30T08:08:10.712Z</updated>
     
     <content type="html"><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p><hr><h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p><hr><h2 id="终"><a href="#终" class="headerlink" title="终"></a>终</h2>]]></content>
     
@@ -37,6 +37,10 @@
     </summary>
     
     
+      <category term="测试" scheme="http://yoursite.com/categories/%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="test" scheme="http://yoursite.com/tags/test/"/>
     
   </entry>
   

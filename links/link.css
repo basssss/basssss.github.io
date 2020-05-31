@@ -2,7 +2,8 @@
     display: -webkit-flex; /* Safari */
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: center;
 }
 .allLinks li {
     list-style: none;
@@ -11,6 +12,7 @@
     width: 20rem;
     height: 8rem;
     margin-top: 3rem;
+    margin-right:2rem;
     overflow: hidden; /*超出边界部分隐藏*/
     background-color: #403e3e;
 }

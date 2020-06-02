@@ -1,144 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Shell基本语法</title>
-    <url>/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="一、Shell概述"><a href="#一、Shell概述" class="headerlink" title="一、Shell概述"></a>一、Shell概述</h1><p>弱类型语言</p>
-<h2 id="1、Shell是什么"><a href="#1、Shell是什么" class="headerlink" title="1、Shell是什么"></a>1、Shell是什么</h2><ol>
-<li>shell字面意思：壳，核：操作系统，shell是保护操作系统的</li>
-<li>计算机操作系统只能识别0和1组成的机器码，通过GUI|CLI来间接操作操作系统。GUI（图形化界面）|CLI（命令行）在用户与操作系统之间，相当于桥梁，结构上看，GUI和CLI保护操作系统 </li>
-<li>GUI与CLI就是通过shell实现的</li>
-</ol>
-<h2 id="2、Shell怎么用"><a href="#2、Shell怎么用" class="headerlink" title="2、Shell怎么用"></a>2、Shell怎么用</h2><h3 id="2-1、流程"><a href="#2-1、流程" class="headerlink" title="2.1、流程"></a>2.1、流程</h3><ul>
-<li>步骤1、创建一个后缀名是.sh的文本文档</li>
-<li>步骤2、在文本文件中录入一个命令（第一行固定格式 #! /bin/bash，指用bin目录下的bash解释）如：echo “xxxx”在命令行模式下直接输出数据</li>
-<li>步骤3、执行 .sh 文件（shell脚本，在shell脚本里面放一些DOS命令，执行shell脚本相当于在命令行中执行DOS命令）<ul>
-<li>sh（bash）shell文件</li>
-<li>绝对路径（/xxx/yyy/abc.sh）或相对路径（./abc.sh）注意：<strong>执行命令前修改权限</strong> chmod 777 abc.sh</li>
-<li>source abc.sh（source相当于 ./）</li>
-</ul>
-</li>
-</ul>
-<h3 id="2-2、练习"><a href="#2-2、练习" class="headerlink" title="2.2、练习"></a>2.2、练习</h3><ul>
-<li>在命令行输出当前所在目录<ul>
-<li>创建文本文档test.sh</li>
-<li>在文档中输入固定格式+命令<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#! &#x2F;bin&#x2F;bash</span><br><span class="line">pwd</span><br></pre></td></tr></table></figure></li>
-<li>执行<ul>
-<li><code>sh test.sh</code></li>
-<li><code>chmod 777 test.sh</code><br><code>/home/xxx/test01_pwd.sh</code> 或 <code>./test.sh</code></li>
-<li><code>source test.sh</code> </li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h1 id="二、Shell语法"><a href="#二、Shell语法" class="headerlink" title="二、Shell语法"></a>二、Shell语法</h1><h2 id="1、注释"><a href="#1、注释" class="headerlink" title="1、注释"></a>1、注释</h2><p>注释是程序中非功能性说明文本,增强程度的易读性，易维护性</p>
-<h3 id="1-1、单行注释"><a href="#1-1、单行注释" class="headerlink" title="1.1、单行注释"></a>1.1、单行注释</h3><p>格式：#注释文本</p>
-<h3 id="1-2、多行注释"><a href="#1-2、多行注释" class="headerlink" title="1.2、多行注释"></a>1.2、多行注释</h3><p>格式：<br>:&lt;&lt;自定义的标记<br>  第一行注释<br>  第二行注释<br>  ……<br>自定义的标记</p>
-<h2 id="2、变量"><a href="#2、变量" class="headerlink" title="2、变量"></a>2、变量</h2><p>程序=数据+数据操作<br>变量就是数据的载体，是因为其中的值可以改变。变量为数据设置一个引用，以后再使用这个数据时，可以通过引用获取数据。</p>
-<h2 id="2-1、变量创建"><a href="#2-1、变量创建" class="headerlink" title="2.1、变量创建"></a>2.1、变量创建</h2><h3 id="2-1-1、格式"><a href="#2-1-1、格式" class="headerlink" title="2.1.1、格式"></a>2.1.1、格式</h3><p>变量名=变量值</p>
-<h3 id="2-1-2、注意事项"><a href="#2-1-2、注意事项" class="headerlink" title="2.1.2、注意事项"></a>2.1.2、注意事项</h3><ul>
-<li>变量名不能数字开头</li>
-<li>变量名不能有空格这种特殊字符</li>
-<li>起名做到见名知意</li>
-<li>变量名不要使用关键字</li>
-<li>赋值符号 <strong>=</strong>左右两侧不要有空格</li>
-<li>变量值可以不使用引号，但是如果有空格，必须使用 “ “ 或 ‘ ‘</li>
-<li>“ “ 和 ‘ ‘的区别：变量之间赋值时，如果是” “，那么赋的是变量的值；如果是’ ‘，那么是指赋值调用格式<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">name&#x3D;&quot;abc&quot;</span><br><span class="line">name2&#x3D;&quot;$&#123;name&#125;&quot;</span><br><span class="line">name3&#x3D;&#39;$&#123;name&#125;&#39;</span><br><span class="line">echo &quot;$&#123;name2&#125;&quot;  &#x2F;&#x2F;输出abc</span><br><span class="line">echo &quot;$&#123;name3&#125;&quot;  &#x2F;&#x2F;输出$&#123;name&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="2-2、变量查询"><a href="#2-2、变量查询" class="headerlink" title="2.2、变量查询"></a>2.2、变量查询</h2><h3 id="2-2-1、格式"><a href="#2-2-1、格式" class="headerlink" title="2.2.1、格式"></a>2.2.1、格式</h3><p>标准格式：”${变量名}”<br>其他格式：${变量名} 或 $变量名</p>
-<h2 id="2-3、变量修改"><a href="#2-3、变量修改" class="headerlink" title="2.3、变量修改"></a>2.3、变量修改</h2><h3 id="2-3-3、格式"><a href="#2-3-3、格式" class="headerlink" title="2.3.3、格式"></a>2.3.3、格式</h3><p>变量名=变量值</p>
-<h2 id="2-4、变量删除"><a href="#2-4、变量删除" class="headerlink" title="2.4、变量删除"></a>2.4、变量删除</h2><h3 id="2-4-1、格式"><a href="#2-4-1、格式" class="headerlink" title="2.4.1、格式"></a>2.4.1、格式</h3><p>unset 变量名</p>
-<h2 id="2-5、变量分类"><a href="#2-5、变量分类" class="headerlink" title="2.5、变量分类"></a>2.5、变量分类</h2><h3 id="2-5-1、本地-局部变量"><a href="#2-5-1、本地-局部变量" class="headerlink" title="2.5.1、本地/局部变量"></a>2.5.1、本地/局部变量</h3><p>只有当前shell可以使用的变量</p>
-<h3 id="2-5-2、全局-静态变量"><a href="#2-5-2、全局-静态变量" class="headerlink" title="2.5.2、全局/静态变量"></a>2.5.2、全局/静态变量</h3><ul>
-<li>是被多个shell共享的变量</li>
-<li>如何将本地变量转换成全局变量？<ul>
-<li>格式：export 局部变量</li>
-<li>思想：将本地变量设置为全局变量，就是将本地变量导出到共享空间</li>
-</ul>
-</li>
-<li>查询全局变量：env</li>
-</ul>
-<p>注意1：如果是全局变量，建议变量名所有字母都大写<br>注意2：全局变量要慎用</p>
-<h3 id="2-5-3、内置变量（特殊变量）"><a href="#2-5-3、内置变量（特殊变量）" class="headerlink" title="2.5.3、内置变量（特殊变量）"></a>2.5.3、内置变量（特殊变量）</h3><ul>
-<li><p>编写shell动态获取某个目录下的子级。实现流程：</p>
-<ul>
-<li>shell调用时，可以传入要操作的目录。格式：sh abc.sh 要操作的目录（如：<code>sh var01_inner.sh /home/test</code>）</li>
-<li>shell执行时，可以获取调用时传入的目录。格式：ls $1（代表传入的第一个参数）<br>上述流程其实就是<strong>传参以及参数解析</strong>的过程，这个参数就可以称之为内置变量</li>
-</ul>
-</li>
-<li><p>语法总结：</p>
-<ul>
-<li>应用场景：程序执行时有些数据是可变的，调用脚本时，传入这些可变数据，脚本中解析获取</li>
-<li>调用格式：sh xxx.sh 参数1 参数2 参数3 ……</li>
-<li>解析格式：$N 获取第N个参数</li>
-<li>优点：动态传值，更灵活</li>
-<li>注意：$N获取第N个参数，但是N最大就到9（若脚本中写$10，这里0为字符串，表示获取第1个参数的值+0，而不是获取第10位参数）<ul>
-<li>$0获取脚本文件名 var02_inner.sh</li>
-<li>$*获取所有参数</li>
-<li>$#获取参数个数</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>test.sh：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#! &#x2F;bin&#x2F;bash</span><br><span class="line">#ls $1</span><br><span class="line">echo &quot;第一个参数：$1&quot;</span><br><span class="line">echo &quot;第二个参数：$2&quot;</span><br><span class="line">echo &quot;第三个参数：$3&quot;</span><br><span class="line">echo &quot;文件名：$0&quot;</span><br><span class="line">echo &quot;所有参数：$*&quot;</span><br><span class="line">echo &quot;参数个数：$#&quot;</span><br></pre></td></tr></table></figure>
-<p>执行：<code>sh test.sh 1 2 3 4</code><br><img src="image/ShellBasicSyntax/1.png" alt="Shell输出"></p>
-</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>Shell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>第一篇博客</title>
-    <url>/2020/05/29/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
-<hr>
-<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
-<hr>
-<h2 id="终"><a href="#终" class="headerlink" title="终"></a>终</h2>]]></content>
-      <categories>
-        <category>测试项</category>
-      </categories>
-      <tags>
-        <tag>测试项</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用hexo框架+ayer主题搭建博客</title>
-    <url>/2020/06/01/%E4%BD%BF%E7%94%A8hexo%E6%A1%86%E6%9E%B6-ayer%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="Loading……"><a href="#Loading……" class="headerlink" title="Loading……"></a>Loading……</h1>]]></content>
-      <categories>
-        <category>搭建博客</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>gitalk</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/05/28/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Linux常用命令</title>
     <url>/2020/05/31/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>Linux + CentOS6.5</p>
@@ -256,6 +118,145 @@
 ]]></content>
       <tags>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Shell基本语法</title>
+    <url>/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="一、Shell概述"><a href="#一、Shell概述" class="headerlink" title="一、Shell概述"></a>一、Shell概述</h1><p>弱类型语言</p>
+<h2 id="1、Shell是什么"><a href="#1、Shell是什么" class="headerlink" title="1、Shell是什么"></a>1、Shell是什么</h2><ol>
+<li>shell字面意思：壳，核：操作系统，shell是保护操作系统的</li>
+<li>计算机操作系统只能识别0和1组成的机器码，通过GUI|CLI来间接操作操作系统。GUI（图形化界面）|CLI（命令行）在用户与操作系统之间，相当于桥梁，结构上看，GUI和CLI保护操作系统 </li>
+<li>GUI与CLI就是通过shell实现的</li>
+</ol>
+<h2 id="2、Shell怎么用"><a href="#2、Shell怎么用" class="headerlink" title="2、Shell怎么用"></a>2、Shell怎么用</h2><h3 id="2-1、流程"><a href="#2-1、流程" class="headerlink" title="2.1、流程"></a>2.1、流程</h3><ul>
+<li>步骤1、创建一个后缀名是.sh的文本文档</li>
+<li>步骤2、在文本文件中录入一个命令（第一行固定格式 #! /bin/bash，指用bin目录下的bash解释）如：echo “xxxx”在命令行模式下直接输出数据</li>
+<li>步骤3、执行 .sh 文件（shell脚本，在shell脚本里面放一些DOS命令，执行shell脚本相当于在命令行中执行DOS命令）<ul>
+<li>sh（bash）shell文件</li>
+<li>绝对路径（/xxx/yyy/abc.sh）或相对路径（./abc.sh）注意：<strong>执行命令前修改权限</strong> chmod 777 abc.sh</li>
+<li>source abc.sh（source相当于 ./）</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-2、练习"><a href="#2-2、练习" class="headerlink" title="2.2、练习"></a>2.2、练习</h3><ul>
+<li>在命令行输出当前所在目录<ul>
+<li>创建文本文档test.sh</li>
+<li>在文档中输入固定格式+命令<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#! &#x2F;bin&#x2F;bash</span><br><span class="line">pwd</span><br></pre></td></tr></table></figure></li>
+<li>执行<ul>
+<li><code>sh test.sh</code></li>
+<li><code>chmod 777 test.sh</code><br><code>/home/xxx/test01_pwd.sh</code> 或 <code>./test.sh</code></li>
+<li><code>source test.sh</code> </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="二、Shell语法"><a href="#二、Shell语法" class="headerlink" title="二、Shell语法"></a>二、Shell语法</h1><h2 id="1、注释"><a href="#1、注释" class="headerlink" title="1、注释"></a>1、注释</h2><p>注释是程序中非功能性说明文本,增强程度的易读性，易维护性</p>
+<h3 id="1-1、单行注释"><a href="#1-1、单行注释" class="headerlink" title="1.1、单行注释"></a>1.1、单行注释</h3><p>格式：#注释文本</p>
+<h3 id="1-2、多行注释"><a href="#1-2、多行注释" class="headerlink" title="1.2、多行注释"></a>1.2、多行注释</h3><p>格式：<br>:&lt;&lt;自定义的标记<br>  第一行注释<br>  第二行注释<br>  ……<br>自定义的标记</p>
+<h2 id="2、变量"><a href="#2、变量" class="headerlink" title="2、变量"></a>2、变量</h2><p>程序=数据+数据操作<br>变量就是数据的载体，是因为其中的值可以改变。变量为数据设置一个引用，以后再使用这个数据时，可以通过引用获取数据。</p>
+<h2 id="2-1、变量创建"><a href="#2-1、变量创建" class="headerlink" title="2.1、变量创建"></a>2.1、变量创建</h2><h3 id="2-1-1、格式"><a href="#2-1-1、格式" class="headerlink" title="2.1.1、格式"></a>2.1.1、格式</h3><p>变量名=变量值</p>
+<h3 id="2-1-2、注意事项"><a href="#2-1-2、注意事项" class="headerlink" title="2.1.2、注意事项"></a>2.1.2、注意事项</h3><ul>
+<li>变量名不能数字开头</li>
+<li>变量名不能有空格这种特殊字符</li>
+<li>起名做到见名知意</li>
+<li>变量名不要使用关键字</li>
+<li>赋值符号 <strong>=</strong>左右两侧不要有空格</li>
+<li>变量值可以不使用引号，但是如果有空格，必须使用 “ “ 或 ‘ ‘</li>
+<li>“ “ 和 ‘ ‘的区别：变量之间赋值时，如果是” “，那么赋的是变量的值；如果是’ ‘，那么是指赋值调用格式<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">name&#x3D;&quot;abc&quot;</span><br><span class="line">name2&#x3D;&quot;$&#123;name&#125;&quot;</span><br><span class="line">name3&#x3D;&#39;$&#123;name&#125;&#39;</span><br><span class="line">echo &quot;$&#123;name2&#125;&quot;  &#x2F;&#x2F;输出abc</span><br><span class="line">echo &quot;$&#123;name3&#125;&quot;  &#x2F;&#x2F;输出$&#123;name&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="2-2、变量查询"><a href="#2-2、变量查询" class="headerlink" title="2.2、变量查询"></a>2.2、变量查询</h2><h3 id="2-2-1、格式"><a href="#2-2-1、格式" class="headerlink" title="2.2.1、格式"></a>2.2.1、格式</h3><p>标准格式：”${变量名}”<br>其他格式：${变量名} 或 $变量名</p>
+<h2 id="2-3、变量修改"><a href="#2-3、变量修改" class="headerlink" title="2.3、变量修改"></a>2.3、变量修改</h2><h3 id="2-3-3、格式"><a href="#2-3-3、格式" class="headerlink" title="2.3.3、格式"></a>2.3.3、格式</h3><p>变量名=变量值</p>
+<h2 id="2-4、变量删除"><a href="#2-4、变量删除" class="headerlink" title="2.4、变量删除"></a>2.4、变量删除</h2><h3 id="2-4-1、格式"><a href="#2-4-1、格式" class="headerlink" title="2.4.1、格式"></a>2.4.1、格式</h3><p>unset 变量名</p>
+<h2 id="2-5、变量分类"><a href="#2-5、变量分类" class="headerlink" title="2.5、变量分类"></a>2.5、变量分类</h2><h3 id="2-5-1、本地-局部变量"><a href="#2-5-1、本地-局部变量" class="headerlink" title="2.5.1、本地/局部变量"></a>2.5.1、本地/局部变量</h3><p>只有当前shell可以使用的变量</p>
+<h3 id="2-5-2、全局-静态变量"><a href="#2-5-2、全局-静态变量" class="headerlink" title="2.5.2、全局/静态变量"></a>2.5.2、全局/静态变量</h3><ul>
+<li>是被多个shell共享的变量</li>
+<li>如何将本地变量转换成全局变量？<ul>
+<li>格式：export 局部变量</li>
+<li>思想：将本地变量设置为全局变量，就是将本地变量导出到共享空间</li>
+</ul>
+</li>
+<li>查询全局变量：env</li>
+</ul>
+<p>注意1：如果是全局变量，建议变量名所有字母都大写<br>注意2：全局变量要慎用</p>
+<h3 id="2-5-3、内置变量（特殊变量）"><a href="#2-5-3、内置变量（特殊变量）" class="headerlink" title="2.5.3、内置变量（特殊变量）"></a>2.5.3、内置变量（特殊变量）</h3><ul>
+<li><p>编写shell动态获取某个目录下的子级。实现流程：</p>
+<ul>
+<li>shell调用时，可以传入要操作的目录。格式：sh abc.sh 要操作的目录（如：<code>sh var01_inner.sh /home/test</code>）</li>
+<li>shell执行时，可以获取调用时传入的目录。格式：ls $1（代表传入的第一个参数）<br>上述流程其实就是<strong>传参以及参数解析</strong>的过程，这个参数就可以称之为内置变量</li>
+</ul>
+</li>
+<li><p>语法总结：</p>
+<ul>
+<li>应用场景：程序执行时有些数据是可变的，调用脚本时，传入这些可变数据，脚本中解析获取</li>
+<li>调用格式：sh xxx.sh 参数1 参数2 参数3 ……</li>
+<li>解析格式：$N 获取第N个参数</li>
+<li>优点：动态传值，更灵活</li>
+<li>注意：$N获取第N个参数，但是N最大就到9（若脚本中写$10，这里0为字符串，表示获取第1个参数的值+0，而不是获取第10位参数）<ul>
+<li>$0获取脚本文件名 var02_inner.sh</li>
+<li>$*获取所有参数</li>
+<li>$#获取参数个数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>test.sh：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#! &#x2F;bin&#x2F;bash</span><br><span class="line">#ls $1</span><br><span class="line">echo &quot;第一个参数：$1&quot;</span><br><span class="line">echo &quot;第二个参数：$2&quot;</span><br><span class="line">echo &quot;第三个参数：$3&quot;</span><br><span class="line">echo &quot;文件名：$0&quot;</span><br><span class="line">echo &quot;所有参数：$*&quot;</span><br><span class="line">echo &quot;参数个数：$#&quot;</span><br></pre></td></tr></table></figure>
+<p>执行：<code>sh test.sh 1 2 3 4</code></p>
+
+</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/05/28/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>使用hexo框架+ayer主题搭建博客</title>
+    <url>/2020/06/01/%E4%BD%BF%E7%94%A8hexo%E6%A1%86%E6%9E%B6-ayer%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h1 id="Loading……"><a href="#Loading……" class="headerlink" title="Loading……"></a>Loading……</h1>]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>gitalk</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第一篇博客</title>
+    <url>/2020/05/29/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
+<hr>
+<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
+<hr>
+<h2 id="终"><a href="#终" class="headerlink" title="终"></a>终</h2>]]></content>
+      <categories>
+        <category>测试项</category>
+      </categories>
+      <tags>
+        <tag>测试项</tag>
       </tags>
   </entry>
 </search>

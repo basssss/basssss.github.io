@@ -151,6 +151,71 @@
       </tags>
   </entry>
   <entry>
+    <title>测试基础</title>
+    <url>/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<p>（如有错误请在评论区留言）</p>
+<h1 id="一、测试基础"><a href="#一、测试基础" class="headerlink" title="一、测试基础"></a>一、测试基础</h1><h2 id="1、软件测试是什么"><a href="#1、软件测试是什么" class="headerlink" title="1、软件测试是什么"></a>1、软件测试是什么</h2><p>检查软件功能实际结果是否符合预期结果</p>
+<h3 id="1-1、软件测试发展历程"><a href="#1-1、软件测试发展历程" class="headerlink" title="1.1、软件测试发展历程"></a>1.1、软件测试发展历程</h3><ul>
+<li>第一阶段：软件测试就是证明软件是正确的（eg：qq登录输入正确的密码即对）</li>
+<li>第二阶段：软件测试就是证明软件是错误的（eg：考虑到了错误的情况）</li>
+<li>第三阶段：软件测试就是保证软件的质量是符合用户需求的一系列手段（软件测试的目的不是为了发现bug而是预防bug）（不仅针对于软件本身，而是针对整个软件开发流程）</li>
+</ul>
+<h3 id="1-2、软件测试职业前景"><a href="#1-2、软件测试职业前景" class="headerlink" title="1.2、软件测试职业前景"></a>1.2、软件测试职业前景</h3><img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E8%81%8C%E4%B8%9A%E5%89%8D%E6%99%AF.JPG" class="" title="Shell输出">
+
+<h2 id="2、软件测试分类"><a href="#2、软件测试分类" class="headerlink" title="2、软件测试分类"></a>2、软件测试分类</h2><img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB.png" class="" title="Shell输出">
+<h3 id="2-1、按是否执行程序分类"><a href="#2-1、按是否执行程序分类" class="headerlink" title="2.1、按是否执行程序分类"></a>2.1、按是否执行程序分类</h3><ul>
+<li>静态测试</li>
+<li>动态测试</li>
+</ul>
+<h3 id="2-2、按是否关心内部结构分类"><a href="#2-2、按是否关心内部结构分类" class="headerlink" title="2.2、按是否关心内部结构分类"></a>2.2、按是否关心内部结构分类</h3><ul>
+<li>黑盒测试：只关心输入输出数据、不关心内部原理<ul>
+<li>功能测试：逻辑、界面、易用性、安装、兼容性</li>
+<li>性能测试：一般性能测试、稳定性、负载、压力</li>
+</ul>
+</li>
+<li>白盒测试：查看源代码结构</li>
+<li>灰盒测试：黑白结合</li>
+</ul>
+<h3 id="2-3、按执行过程是否需要人工干预分类"><a href="#2-3、按执行过程是否需要人工干预分类" class="headerlink" title="2.3、按执行过程是否需要人工干预分类"></a>2.3、按执行过程是否需要人工干预分类</h3><ul>
+<li>手工测试</li>
+<li>自动化测试</li>
+</ul>
+<h3 id="2-4、按测试阶段分类"><a href="#2-4、按测试阶段分类" class="headerlink" title="2.4、按测试阶段分类"></a>2.4、按测试阶段分类</h3><ul>
+<li>单元测试：方法、函数、类</li>
+<li>集成测试：测接口</li>
+<li>系统测试：功能、安全、性能、兼容性（同一WEB网站在不同浏览器、同一app在不同型号手机）、易用性、稳定性（软件一直使用是否会崩溃）、UI</li>
+<li>验收测试（α、β、γ）</li>
+</ul>
+<h3 id="2-5、按测试方向分类"><a href="#2-5、按测试方向分类" class="headerlink" title="2.5、按测试方向分类"></a>2.5、按测试方向分类</h3><ul>
+<li>功能测试：测试功能（逻辑、界面、易用性、安装、兼容性）。功能测试不是黑盒测试，黑、白、灰三种都能测，只是通常用黑盒测试</li>
+<li>性能测试：测试性能能够做多好<ul>
+<li>压力测试：发现软件性能瓶颈</li>
+<li>负载测试：持续高强度工作能维持多长时间</li>
+<li>并发测试：防止多人同时做一件事出错</li>
+</ul>
+</li>
+<li>安全测试</li>
+</ul>
+<h3 id="2-5、其他分类"><a href="#2-5、其他分类" class="headerlink" title="2.5、其他分类"></a>2.5、其他分类</h3><ul>
+<li>冒烟测试：非正式测试流程，测试前的测试。整体测流程，不能一开始就出现问题。大概检查软件是否具备可测试性，功能的完成程度</li>
+<li>回归测试：测试完后，把bug给开发修改后，再测试bug是否修复。若a有问题，修改后相关联的bcd还要再测一遍</li>
+<li>随机测试：测试重点模块或之前出过问题的模块</li>
+<li>验收测试<ul>
+<li>α（内测）：内部人员或少量用户测试，此阶段解决严重问题</li>
+<li>β（公测）：用户免费使用，根据用户反馈修复软件细节</li>
+<li>γ（准正式版）：跟正式版几乎一样</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>软件测试</category>
+      </categories>
+      <tags>
+        <tag>Test</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>第一篇博客</title>
     <url>/2020/05/29/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
@@ -168,7 +233,8 @@
   <entry>
     <title>Shell基本语法</title>
     <url>/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="一、Shell概述"><a href="#一、Shell概述" class="headerlink" title="一、Shell概述"></a>一、Shell概述</h1><p>弱类型语言</p>
+    <content><![CDATA[<p>（如有错误请在评论区留言）</p>
+<h1 id="一、Shell概述"><a href="#一、Shell概述" class="headerlink" title="一、Shell概述"></a>一、Shell概述</h1><p>弱类型语言</p>
 <h2 id="1、Shell是什么"><a href="#1、Shell是什么" class="headerlink" title="1、Shell是什么"></a>1、Shell是什么</h2><ol>
 <li>shell字面意思：壳，核：操作系统，shell是保护操作系统的</li>
 <li>计算机操作系统只能识别0和1组成的机器码，通过GUI|CLI来间接操作操作系统。GUI（图形化界面）|CLI（命令行）在用户与操作系统之间，相当于桥梁，结构上看，GUI和CLI保护操作系统 </li>

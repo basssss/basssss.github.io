@@ -1,6 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>使用hexo框架+ayer主题+gitalk评论模块搭建个人博客</title>
+    <url>/2020/06/14/%E4%BD%BF%E7%94%A8hexo%E6%A1%86%E6%9E%B6-ayer%E4%B8%BB%E9%A2%98-gitalk%E8%AF%84%E8%AE%BA%E6%A8%A1%E5%9D%97%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<p>（第一次搭建个人博客，记录一下搭建方法还有那些踩过的坑）</p>
+<h4 id="环境：windows10"><a href="#环境：windows10" class="headerlink" title="环境：windows10"></a>环境：windows10</h4><h4 id="前提："><a href="#前提：" class="headerlink" title="前提："></a>前提：</h4><h5 id="1-安装好node-js-和-Git"><a href="#1-安装好node-js-和-Git" class="headerlink" title="1.安装好node.js 和 Git"></a>1.安装好node.js 和 Git</h5><h5 id="2-安装淘宝的cnpm"><a href="#2-安装淘宝的cnpm" class="headerlink" title="2.安装淘宝的cnpm"></a>2.安装淘宝的cnpm</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry&#x3D;http:&#x2F;&#x2F;registry.npm.taobao.org</span><br><span class="line">cnpm -v  &#x2F;&#x2F;查看安装版本</span><br></pre></td></tr></table></figure>
+<h2 id="一、使用hexo框架搭建静态博客"><a href="#一、使用hexo框架搭建静态博客" class="headerlink" title="一、使用hexo框架搭建静态博客"></a>一、使用hexo框架搭建静态博客</h2><h3 id="1-安装-hexo-框架"><a href="#1-安装-hexo-框架" class="headerlink" title="1.安装 hexo 框架"></a>1.安装 hexo 框架</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br><span class="line">hexo -v   &#x2F;&#x2F;查看hexo版本</span><br></pre></td></tr></table></figure>
+<h3 id="2-在磁盘中新建-blog-文件夹"><a href="#2-在磁盘中新建-blog-文件夹" class="headerlink" title="2.在磁盘中新建 blog 文件夹"></a>2.在磁盘中新建 blog 文件夹</h3><p>在 blog 文件夹中打开 Git Bash，输入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init  &#x2F;&#x2F;新建一个网站</span><br></pre></td></tr></table></figure>
+<h3 id="3-启动服务器"><a href="#3-启动服务器" class="headerlink" title="3.启动服务器"></a>3.启动服务器</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p>打开浏览器中，输入 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 访问博客<br>ctrl+c 关闭服务器</p>
+<h3 id="4-新建一篇博客"><a href="#4-新建一篇博客" class="headerlink" title="4.新建一篇博客"></a>4.新建一篇博客</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new &quot;第一篇博客&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>文件路径：D:\blog\source_posts\第一篇博客.md</li>
+<li>在vscode中打开.md文件、编辑</li>
+</ul>
+<h3 id="5-清除缓存文件"><a href="#5-清除缓存文件" class="headerlink" title="5.清除缓存文件"></a>5.清除缓存文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+<p>建议每次生成站点或部署之前都用该命令清理一下缓存</p>
+<h3 id="6-生成静态文件"><a href="#6-生成静态文件" class="headerlink" title="6.生成静态文件"></a>6.生成静态文件</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="7-再次启动服务器"><a href="#7-再次启动服务器" class="headerlink" title="7.再次启动服务器"></a>7.再次启动服务器</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p>在刚才打开的浏览器博客页面刷新，出现新写的文章</p>
+<h3 id="8-把博客部署到Github"><a href="#8-把博客部署到Github" class="headerlink" title="8.把博客部署到Github"></a>8.把博客部署到Github</h3><ul>
+<li>打开你的Github——&gt;新建仓库，仓库名必须是:你的github名字.github.io.git</li>
+<li>回到命令行，ctrl+c断开hexo<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure></li>
+<li>设置 _config.yml 文件:最下方 #Deployment 的 deploy 修改：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type: git</span><br><span class="line">repo: git@github.com:basssss&#x2F;basssss.github.io.git（仓库地址）</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure></li>
+<li>部署到 Github<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="9-进入博客页面"><a href="#9-进入博客页面" class="headerlink" title="9.进入博客页面"></a>9.进入博客页面</h3>浏览器中输入地址：basssss.github.io跳转到博客页面</li>
+</ul>
+<hr>
+<p>至此hexo框架搭建静态博客完毕<br>参考资料</p>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1Yb411a7ty" target="_blank" rel="noopener">CodeSheep</a></li>
+<li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo文档</a></li>
+</ul>
+<hr>
+<h2 id="二、安装ayer主题"><a href="#二、安装ayer主题" class="headerlink" title="二、安装ayer主题"></a>二、安装ayer主题</h2><h3 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;Shen-Yu&#x2F;hexo-theme-ayer.git themes&#x2F;ayer</span><br></pre></td></tr></table></figure>
+<h3 id="2-设置-config-yml文件"><a href="#2-设置-config-yml文件" class="headerlink" title="2.设置_config.yml文件"></a>2.设置_config.yml文件</h3><p>打开_config.yml文件，找到theme修改为ayer保存退出。</p>
+<h3 id="3-新增menu"><a href="#3-新增menu" class="headerlink" title="3.新增menu"></a>3.新增menu</h3><p>仿照分类和标签的方式，新增menu如”关于我”</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page AboutMe</span><br></pre></td></tr></table></figure>
+<hr>
+<p>至此ayer主题安装完毕<br>参考资料（作者文档中的安装步骤写的很详细，看文档就好）</p>
+<ul>
+<li><a href="https://shen-yu.gitee.io/2019/ayer/" target="_blank" rel="noopener">ayer文档</a></li>
+</ul>
+<hr>
+<h2 id="三、安装Gitalk评论插件"><a href="#三、安装Gitalk评论插件" class="headerlink" title="三、安装Gitalk评论插件"></a>三、安装Gitalk评论插件</h2><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h3><ul>
+<li><a href="https://github.com/gitalk/gitalk/blob/master/readme-cn.md" target="_blank" rel="noopener">Gitalk安装步骤</a></li>
+<li>直接在ayer的_config.yml文件中修改就行，不需要再添加div代码块</li>
+<li>部署好后要登录github初始化才能评论</li>
+</ul>
+<h3 id="2-在自己新建的menu页面中安装Gitalk评论插件"><a href="#2-在自己新建的menu页面中安装Gitalk评论插件" class="headerlink" title="2.在自己新建的menu页面中安装Gitalk评论插件"></a>2.在自己新建的menu页面中安装Gitalk评论插件</h3><p>ayer主题默认在主页和文章底部添加Gitalk，在自己新增的页面如友情链接link页面中安装Gitalk需要修改代码</p>
+<ul>
+<li>在D:\blog\source\links\index.md<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;gitalk@1&#x2F;dist&#x2F;gitalk.css&quot;&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;gitalk@1&#x2F;dist&#x2F;gitalk.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure></li>
+<li>在D:\blog\themes\ayer\layout_partial\article.ejs文件中添加一个容器，用下面的 Javascript 代码来生成 gitalk 插件<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;gitalk-container&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">var gitalk &#x3D; new Gitalk(&#123;</span><br><span class="line">  clientID: &#39;GitHub Application Client ID&#39;,</span><br><span class="line">  clientSecret: &#39;GitHub Application Client Secret&#39;,</span><br><span class="line">  repo: &#39;GitHub repo&#39;,</span><br><span class="line">  owner: &#39;GitHub repo owner&#39;,</span><br><span class="line">  admin: [&#39;GitHub repo owner and collaborators, only these guys can initialize github issues&#39;],</span><br><span class="line">  id: location.pathname,      &#x2F;&#x2F; Ensure uniqueness and length less than 50</span><br><span class="line">  distractionFreeMode: false  &#x2F;&#x2F; Facebook-like distraction free mode</span><br><span class="line">&#125;)</span><br><span class="line">gitalk.render(&#39;gitalk-container&#39;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>至此Gitalk评论插件安装完毕<br>参考资料：<a href="https://github.com/gitalk/gitalk/blob/master/readme-cn.md" target="_blank" rel="noopener">Gitalk</a></p>
+<hr>
+<h2 id="四、添加友情链接页面"><a href="#四、添加友情链接页面" class="headerlink" title="四、添加友情链接页面"></a>四、添加友情链接页面</h2><p>原主题是没有友链页面的，需要自己写代码，这是我的<br>在D:\blog\source\links下新建文件夹LinkImage存放图片，新建文件link.css</p>
+<ul>
+<li>index.md<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;ul class&#x3D;&quot;allLinks&quot;&gt;</span><br><span class="line">        &lt;li&gt;</span><br><span class="line">            &lt;img src&#x3D;&quot;图片地址&quot; alt&#x3D;&quot;图片描述&quot;&gt;</span><br><span class="line">            &lt;a href&#x3D;&quot;友情链接地址&quot;&gt;博客名&lt;&#x2F;a&gt;</span><br><span class="line">        &lt;&#x2F;li&gt;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure></li>
+<li>link.css<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.allLinks &#123;</span><br><span class="line">    display: -webkit-flex; &#x2F;* Safari *&#x2F;</span><br><span class="line">    display: flex;</span><br><span class="line">    flex-wrap: wrap;</span><br><span class="line">    justify-content: center;</span><br><span class="line">&#125;</span><br><span class="line">.allLinks li &#123;</span><br><span class="line">    list-style: none;</span><br><span class="line">    display: inline-flex;</span><br><span class="line">    border-radius: 1rem;</span><br><span class="line">    width: 20rem;</span><br><span class="line">    height: 8rem;</span><br><span class="line">    margin-top: 3rem;</span><br><span class="line">    margin-right:2rem;</span><br><span class="line">    overflow: hidden; &#x2F;*超出边界部分隐藏*&#x2F;</span><br><span class="line">    background-color: #403e3e;</span><br><span class="line">&#125;</span><br><span class="line">.allLinks li img &#123;</span><br><span class="line">    width:6rem;</span><br><span class="line">    height:6rem;</span><br><span class="line">    border-radius: 50%;</span><br><span class="line">    margin: 1rem;</span><br><span class="line">&#125;</span><br><span class="line">.allLinks li a &#123;</span><br><span class="line">    width: 12rem;</span><br><span class="line">    padding-top: 10%;</span><br><span class="line">    text-align: center;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">    text-decoration: none;</span><br><span class="line">    font-size: 1.7rem;</span><br><span class="line">    font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, 微软雅黑, Arial, sans-serif;</span><br><span class="line">    color:#bbb;</span><br><span class="line">    word-wrap: break-word; &#x2F;*文字换行*&#x2F;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="五、hexo给文章添加分类和标签"><a href="#五、hexo给文章添加分类和标签" class="headerlink" title="五、hexo给文章添加分类和标签"></a>五、hexo给文章添加分类和标签</h2><h3 id="1-添加分类"><a href="#1-添加分类" class="headerlink" title="1.添加分类"></a>1.添加分类</h3></li>
+<li>在D:\blog\source\categories\index.md中添加 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type: &quot;categories&quot;</span><br><span class="line">layout: &quot;categories&quot;</span><br></pre></td></tr></table></figure></li>
+<li>需要添加分类的文章中添加<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">categories: </span><br><span class="line">    - 分类名</span><br></pre></td></tr></table></figure>
+<h3 id="2-添加标签"><a href="#2-添加标签" class="headerlink" title="2.添加标签"></a>2.添加标签</h3></li>
+<li>在D:\blog\source\tags\index.md中添加<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type: &quot;tags&quot;</span><br><span class="line">layout: &quot;tags&quot;</span><br></pre></td></tr></table></figure></li>
+<li>需要添加标签的文章中添加<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tags:</span><br><span class="line">    - 标签名</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="六、修改Github-ribbon样式"><a href="#六、修改Github-ribbon样式" class="headerlink" title="六、修改Github ribbon样式"></a>六、修改Github ribbon样式</h2><p>修改D:\blog\themes\ayer\layout_partial\ayer.ejs的代码，将原来的a标签修改为在<a href="http://tholman.com/github-corners/" target="_blank" rel="noopener">Github ribbon</a>中选中样式的代码，并修改所有的”github-corner”为”forkMe”</p>
+<img src="/2020/06/14/%E4%BD%BF%E7%94%A8hexo%E6%A1%86%E6%9E%B6-ayer%E4%B8%BB%E9%A2%98-gitalk%E8%AF%84%E8%AE%BA%E6%A8%A1%E5%9D%97%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%85%ADGithubRibbon.JPG" class="" title="GithubRibbon">
+
+<h2 id="七、hexo框架插入图片"><a href="#七、hexo框架插入图片" class="headerlink" title="七、hexo框架插入图片"></a>七、hexo框架插入图片</h2><p>在写的博客中插入图片时，不能用普通的Markdown语法，参考<a href="https://hexo.io/zh-cn/docs/asset-folders" target="_blank" rel="noopener">hexo文档</a>，应该：</p>
+<ul>
+<li>安装插件<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install https:&#x2F;&#x2F;github.com&#x2F;CodeFalling&#x2F;hexo-asset-image -- save</span><br></pre></td></tr></table></figure></li>
+<li>将 config.yml 文件中的 post_asset_folder 选项设为 true</li>
+<li>创建新文章和同名文件夹，将图片资源放到文件夹中<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure></li>
+<li>在文档中需要插入图片的地方<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% asset_img 图片名.jpg 描述语句 %&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>博客搭建</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>gitalk</tag>
+        <tag>github</tag>
+        <tag>coding</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/05/28/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Linux常用命令</title>
     <url>/2020/05/31/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>Linux + CentOS6.5</p>
@@ -121,36 +233,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/05/28/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>使用hexo框架+ayer主题搭建博客</title>
-    <url>/2020/06/01/%E4%BD%BF%E7%94%A8hexo%E6%A1%86%E6%9E%B6-ayer%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="Loading……"><a href="#Loading……" class="headerlink" title="Loading……"></a>Loading……</h1>]]></content>
-      <categories>
-        <category>搭建博客</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>gitalk</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>第一篇博客</title>
     <url>/2020/05/29/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
@@ -175,9 +257,9 @@
 <li>第二阶段：软件测试就是证明软件是错误的（eg：考虑到了错误的情况）</li>
 <li>第三阶段：软件测试就是保证软件的质量是符合用户需求的一系列手段（软件测试的目的不是为了发现bug而是预防bug）（不仅针对于软件本身，而是针对整个软件开发流程）</li>
 </ul>
-<h3 id="1-2、软件测试职业前景"><a href="#1-2、软件测试职业前景" class="headerlink" title="1.2、软件测试职业前景"></a>1.2、软件测试职业前景</h3><img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%B8%80.1.2%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E8%81%8C%E4%B8%9A%E5%89%8D%E6%99%AF.JPG" class="" title="Shell输出">
+<h3 id="1-2、软件测试职业前景"><a href="#1-2、软件测试职业前景" class="headerlink" title="1.2、软件测试职业前景"></a>1.2、软件测试职业前景</h3><img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%B8%80.1.2%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E8%81%8C%E4%B8%9A%E5%89%8D%E6%99%AF.JPG" class="" title="软件测试职业前景">
 
-<h2 id="2、软件测试分类"><a href="#2、软件测试分类" class="headerlink" title="2、软件测试分类"></a>2、软件测试分类</h2><img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%B8%80.2%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB.png" class="" title="Shell输出">
+<h2 id="2、软件测试分类"><a href="#2、软件测试分类" class="headerlink" title="2、软件测试分类"></a>2、软件测试分类</h2><img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%B8%80.2%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB.png" class="" title="软件测试分类">
 <h3 id="2-1、按是否执行程序分类"><a href="#2-1、按是否执行程序分类" class="headerlink" title="2.1、按是否执行程序分类"></a>2.1、按是否执行程序分类</h3><ul>
 <li>静态测试：看文档、看代码、不运行程序</li>
 <li>动态测试：实际运行代码</li>
@@ -250,17 +332,17 @@
 <li>登录名、昵称要注意和谐词、敏感词</li>
 </ol>
 <h3 id="1-2、等价类划分法练习"><a href="#1-2、等价类划分法练习" class="headerlink" title="1.2、等价类划分法练习"></a>1.2、等价类划分法练习</h3><h4 id="1-2-1、练习1"><a href="#1-2-1、练习1" class="headerlink" title="1.2.1、练习1"></a>1.2.1、练习1</h4><ul>
-<li>计算1-100的两个整数之和（包括1和100）<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.2.1%E7%AD%89%E4%BB%B7%E7%B1%BB%E5%88%92%E5%88%86%E7%BB%83%E4%B9%A01.png" class="" title="Shell输出">
+<li>计算1-100的两个整数之和（包括1和100）<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.2.1%E7%AD%89%E4%BB%B7%E7%B1%BB%E5%88%92%E5%88%86%E7%BB%83%E4%B9%A01.png" class="" title="等价类划分练习">
 
 </li>
 </ul>
 <h4 id="1-2-2、练习2"><a href="#1-2-2、练习2" class="headerlink" title="1.2.2、练习2"></a>1.2.2、练习2</h4><ul>
-<li>某城市电话号码由三部分组成，分别是，地区码：空白或是3位数字；前缀：非0且非1开头的三位数字；后缀：4位数字。<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.2.2%E7%AD%89%E4%BB%B7%E7%B1%BB%E5%88%92%E5%88%86%E7%BB%83%E4%B9%A02.png" class="" title="Shell输出">
+<li>某城市电话号码由三部分组成，分别是，地区码：空白或是3位数字；前缀：非0且非1开头的三位数字；后缀：4位数字。<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.2.2%E7%AD%89%E4%BB%B7%E7%B1%BB%E5%88%92%E5%88%86%E7%BB%83%E4%B9%A02.png" class="" title="等价类划分练习">
 
 </li>
 </ul>
 <h4 id="1-2-3、练习3"><a href="#1-2-3、练习3" class="headerlink" title="1.2.3、练习3"></a>1.2.3、练习3</h4><ul>
-<li>用户名（昵称）长度为3-19：以字母开头；登录名称：非空；密码：非空；确认密码：值和密码相同。<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.2.3%E7%AD%89%E4%BB%B7%E7%B1%BB%E5%88%92%E5%88%86%E7%BB%83%E4%B9%A03.png" class="" title="Shell输出">
+<li>用户名（昵称）长度为3-19：以字母开头；登录名称：非空；密码：非空；确认密码：值和密码相同。<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.2.3%E7%AD%89%E4%BB%B7%E7%B1%BB%E5%88%92%E5%88%86%E7%BB%83%E4%B9%A03.png" class="" title="等价类划分练习">
 
 </li>
 </ul>
@@ -279,16 +361,16 @@
 <li>等价类是用来分析单个输入条件输入域的情况的，边界值是在等价类基础上补充测试用例的，侧边界。</li>
 <li>判定表是用来解决<strong>条件组合</strong>的</li>
 </ol>
-<h3 id="1-4、因果图制作判定表练习"><a href="#1-4、因果图制作判定表练习" class="headerlink" title="1.4、因果图制作判定表练习"></a>1.4、因果图制作判定表练习</h3><h4 id="1-4-1、练习1"><a href="#1-4-1、练习1" class="headerlink" title="1.4.1、练习1"></a>1.4.1、练习1</h4><img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.4.1%E5%9B%A0%E6%9E%9C%E5%9B%BE%E5%88%B6%E4%BD%9C%E5%88%A4%E5%AE%9A%E8%A1%A8%E7%BB%83%E4%B9%A01%E9%A2%98%E7%9B%AE.png" class="" title="Shell输出">
-<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.4.1%E5%9B%A0%E6%9E%9C%E5%9B%BE%E5%88%B6%E4%BD%9C%E5%88%A4%E5%AE%9A%E8%A1%A8%E7%BB%83%E4%B9%A01%E8%A7%A3%E7%AD%94.png" class="" title="Shell输出">
+<h3 id="1-4、因果图制作判定表练习"><a href="#1-4、因果图制作判定表练习" class="headerlink" title="1.4、因果图制作判定表练习"></a>1.4、因果图制作判定表练习</h3><h4 id="1-4-1、练习1"><a href="#1-4-1、练习1" class="headerlink" title="1.4.1、练习1"></a>1.4.1、练习1</h4><img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.4.1%E5%9B%A0%E6%9E%9C%E5%9B%BE%E5%88%B6%E4%BD%9C%E5%88%A4%E5%AE%9A%E8%A1%A8%E7%BB%83%E4%B9%A01%E9%A2%98%E7%9B%AE.png" class="" title="因果图制作判定表练习">
+<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.4.1%E5%9B%A0%E6%9E%9C%E5%9B%BE%E5%88%B6%E4%BD%9C%E5%88%A4%E5%AE%9A%E8%A1%A8%E7%BB%83%E4%B9%A01%E8%A7%A3%E7%AD%94.png" class="" title="因果图制作判定表练习">
 
 <h3 id="1-5、场景法"><a href="#1-5、场景法" class="headerlink" title="1.5、场景法"></a>1.5、场景法</h3><p>用户在使用这个功能时会怎么做。<br>基本流：正确的业务流程<br>备选流：有问题的业务流程<br>测试用例的书写：只需要把需求文档的每一条当作一个测试用例即可</p>
 <h3 id="1-5-1、场景法使用场景"><a href="#1-5-1、场景法使用场景" class="headerlink" title="1.5.1、场景法使用场景"></a>1.5.1、场景法使用场景</h3><p>冒烟测试, 系统测试。<br>先使用场景法测主要功能和业务流程是否正确，没问题后再用边界值等价类等方法测试。</p>
-<h3 id="1-6、场景法练习"><a href="#1-6、场景法练习" class="headerlink" title="1.6、场景法练习"></a>1.6、场景法练习</h3><h4 id="1-6-1练习1"><a href="#1-6-1练习1" class="headerlink" title="1.6.1练习1"></a>1.6.1练习1</h4><img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.6.1%E5%9C%BA%E6%99%AF%E6%B3%95%E7%BB%83%E4%B9%A01%E9%A2%98%E7%9B%AE.JPG" class="" title="Shell输出">
-<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.6.1%E5%9C%BA%E6%99%AF%E6%B3%95%E7%BB%83%E4%B9%A01%E8%A7%A3%E7%AD%94.JPG" class="" title="Shell输出">
+<h3 id="1-6、场景法练习"><a href="#1-6、场景法练习" class="headerlink" title="1.6、场景法练习"></a>1.6、场景法练习</h3><h4 id="1-6-1练习1"><a href="#1-6-1练习1" class="headerlink" title="1.6.1练习1"></a>1.6.1练习1</h4><img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.6.1%E5%9C%BA%E6%99%AF%E6%B3%95%E7%BB%83%E4%B9%A01%E9%A2%98%E7%9B%AE.JPG" class="" title="场景法练习">
+<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.6.1%E5%9C%BA%E6%99%AF%E6%B3%95%E7%BB%83%E4%B9%A01%E8%A7%A3%E7%AD%94.JPG" class="" title="场景法练习">
 
 <h3 id="1-7、流程分析法"><a href="#1-7、流程分析法" class="headerlink" title="1.7、流程分析法"></a>1.7、流程分析法</h3><p>测试用例必须包含所有的分支条件，每一个分支条件就是一条测试用例</p>
-<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.7%E6%B5%81%E7%A8%8B%E6%B3%95.JPG" class="" title="Shell输出">
+<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.7%E6%B5%81%E7%A8%8B%E6%B3%95.JPG" class="" title="流程法">
 <h4 id="1-7-1、场景法和流程法使用场景"><a href="#1-7-1、场景法和流程法使用场景" class="headerlink" title="1.7.1、场景法和流程法使用场景"></a>1.7.1、场景法和流程法使用场景</h4><p><strong>有分支的就用流程法</strong></p>
 <h3 id="1-8、错误推断法"><a href="#1-8、错误推断法" class="headerlink" title="1.8、错误推断法"></a>1.8、错误推断法</h3><p>当时间紧任务急的时候，测试时间较少，可以考虑使用错误推断法来设计测试用例<br>根据测试人员以往项目的经验来设计；<br>已经经过了几轮测试后，这时候也可以使用推断法进行测试用例的补充</p>
 <h4 id="1-8-1、错误推断法使用场景"><a href="#1-8-1、错误推断法使用场景" class="headerlink" title="1.8.1、错误推断法使用场景"></a>1.8.1、错误推断法使用场景</h4><p>一是时间紧任务重，二是已经测过几轮了，再根据经验添加测试用例</p>
@@ -312,10 +394,10 @@
 </ol>
 <h4 id="1-9-2、注意事项"><a href="#1-9-2、注意事项" class="headerlink" title="1.9.2、注意事项"></a>1.9.2、注意事项</h4><p>如果没有找到合适的正交表，只需要在表格中找到多一些的正交表，把多余的内容删除即可</p>
 <h4 id="1-9-3、正交设计助手软件"><a href="#1-9-3、正交设计助手软件" class="headerlink" title="1.9.3、正交设计助手软件"></a>1.9.3、正交设计助手软件</h4><ol>
-<li><img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.9.3%E6%AD%A3%E4%BA%A4%E8%BD%AF%E4%BB%B61.png" class="" title="Shell输出"></li>
-<li><img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.9.3%E6%AD%A3%E4%BA%A4%E8%BD%AF%E4%BB%B62.png" class="" title="Shell输出"></li>
-<li>每个都要填写完整 <img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.9.3%E6%AD%A3%E4%BA%A4%E8%BD%AF%E4%BB%B63.png" class="" title="Shell输出"></li>
-<li>rtf是word文档、csv是Excel<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.9.3%E6%AD%A3%E4%BA%A4%E8%BD%AF%E4%BB%B64.png" class="" title="Shell输出">
+<li><img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.9.3%E6%AD%A3%E4%BA%A4%E8%BD%AF%E4%BB%B61.png" class="" title="正交软件"></li>
+<li><img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.9.3%E6%AD%A3%E4%BA%A4%E8%BD%AF%E4%BB%B62.png" class="" title="正交软件"></li>
+<li>每个都要填写完整 <img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.9.3%E6%AD%A3%E4%BA%A4%E8%BD%AF%E4%BB%B63.png" class="" title="正交软件"></li>
+<li>rtf是word文档、csv是Excel<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.9.3%E6%AD%A3%E4%BA%A4%E8%BD%AF%E4%BB%B64.png" class="" title="正交软件">
 
 </li>
 </ol>
@@ -324,7 +406,7 @@
 <li>步骤</li>
 </ul>
 <ol>
-<li>使用Excel制作对照表（不要写编号）<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.9.4allpairs%E6%B7%B7%E5%90%88%E6%AD%A3%E4%BA%A4%E5%B7%A5%E5%85%B7%E5%AF%B9%E7%85%A7%E8%A1%A8.png" class="" title="Shell输出"></li>
+<li>使用Excel制作对照表（不要写编号）<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.9.4allpairs%E6%B7%B7%E5%90%88%E6%AD%A3%E4%BA%A4%E5%B7%A5%E5%85%B7%E5%AF%B9%E7%85%A7%E8%A1%A8.png" class="" title="allpairs混合正交工具对照表"></li>
 <li>复制表格中的所有数据放在一个txt文本中</li>
 <li>把此txt文档放在allpairs文件夹中</li>
 <li>Win+R 输入cmd 打开命令行窗口</li>
@@ -338,27 +420,27 @@
 </ul>
 <ol>
 <li>4因素，3水平</li>
-<li>找到合适的表格并复制到自己表格中<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.10.1%E6%AD%A3%E4%BA%A4%E8%A1%A8%E7%BB%83%E4%B9%A01%E6%AD%A3%E4%BA%A4%E8%A1%A8.png" class="" title="Shell输出"></li>
-<li>对照表<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.10.1%E6%AD%A3%E4%BA%A4%E8%A1%A8%E7%BB%83%E4%B9%A01%E5%AF%B9%E7%85%A7%E8%A1%A8.png" class="" title="Shell输出"></li>
-<li>测试用例（这是进行测试的最少量组合，但是在测试中有81-9=72种组合没有测试到。如果时间允许应该再补充一些用例，因为遗漏的组合越多，存在缺陷的可能性就越大）<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.10.1%E6%AD%A3%E4%BA%A4%E8%A1%A8%E7%BB%83%E4%B9%A01%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B.png" class="" title="Shell输出">
+<li>找到合适的表格并复制到自己表格中<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.10.1%E6%AD%A3%E4%BA%A4%E8%A1%A8%E7%BB%83%E4%B9%A01%E6%AD%A3%E4%BA%A4%E8%A1%A8.png" class="" title="正交表练习"></li>
+<li>对照表<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.10.1%E6%AD%A3%E4%BA%A4%E8%A1%A8%E7%BB%83%E4%B9%A01%E5%AF%B9%E7%85%A7%E8%A1%A8.png" class="" title="正交表练习"></li>
+<li>测试用例（这是进行测试的最少量组合，但是在测试中有81-9=72种组合没有测试到。如果时间允许应该再补充一些用例，因为遗漏的组合越多，存在缺陷的可能性就越大）<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.10.1%E6%AD%A3%E4%BA%A4%E8%A1%A8%E7%BB%83%E4%B9%A01%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B.png" class="" title="正交表练习1测试用例">
 
 </li>
 </ol>
-<h4 id="1-10-2、练习2"><a href="#1-10-2、练习2" class="headerlink" title="1.10.2、练习2"></a>1.10.2、练习2</h4><img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.10.2%E6%AD%A3%E4%BA%A4%E8%A1%A8%E7%BB%83%E4%B9%A02%E9%A2%98%E7%9B%AE.png" class="" title="Shell输出">
+<h4 id="1-10-2、练习2"><a href="#1-10-2、练习2" class="headerlink" title="1.10.2、练习2"></a>1.10.2、练习2</h4><img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.10.2%E6%AD%A3%E4%BA%A4%E8%A1%A8%E7%BB%83%E4%B9%A02%E9%A2%98%E7%9B%AE.png" class="" title="正交表练习2题目">
 <ul>
 <li>步骤</li>
 </ul>
 <ol>
 <li>5因素，2水平（5个控件，每个控件2个可选项，写和不写）</li>
-<li>找到合适的正交表，没有5因素2水平，就用最接近的7因素2水平<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.10.2%E6%AD%A3%E4%BA%A4%E8%A1%A8%E7%BB%83%E4%B9%A02%E6%AD%A3%E4%BA%A4%E8%A1%A8.png" class="" title="Shell输出">
+<li>找到合适的正交表，没有5因素2水平，就用最接近的7因素2水平<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.10.2%E6%AD%A3%E4%BA%A4%E8%A1%A8%E7%BB%83%E4%B9%A02%E6%AD%A3%E4%BA%A4%E8%A1%A8.png" class="" title="正交表练习2正交表">
 把最后两列删除</li>
-<li>对照表<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.10.2%E6%AD%A3%E4%BA%A4%E8%A1%A8%E7%BB%83%E4%B9%A02%E5%AF%B9%E7%85%A7%E8%A1%A8.png" class="" title="Shell输出"></li>
-<li>测试用例<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.10.2%E6%AD%A3%E4%BA%A4%E8%A1%A8%E7%BB%83%E4%B9%A02%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B.png" class="" title="Shell输出">
+<li>对照表<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.10.2%E6%AD%A3%E4%BA%A4%E8%A1%A8%E7%BB%83%E4%B9%A02%E5%AF%B9%E7%85%A7%E8%A1%A8.png" class="" title="正交表练习2对照表"></li>
+<li>测试用例<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.1.10.2%E6%AD%A3%E4%BA%A4%E8%A1%A8%E7%BB%83%E4%B9%A02%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B.png" class="" title="正交表练习2测试用例">
 
 </li>
 </ol>
 <h2 id="2、软件测试模型"><a href="#2、软件测试模型" class="headerlink" title="2、软件测试模型"></a>2、软件测试模型</h2><h3 id="2-1、V模型"><a href="#2-1、V模型" class="headerlink" title="2.1、V模型"></a>2.1、V模型</h3><p>测试与开发工作对应，工作有所依据</p>
-<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.2.1V%E6%A8%A1%E5%9E%8B.png" class="" title="Shell输出">
+<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.2.1V%E6%A8%A1%E5%9E%8B.png" class="" title="V模型">
 
 <ul>
 <li>需求分析（产品经理）：用户需求、业务需求、需求规格说明书</li>
@@ -371,7 +453,7 @@
 <li>验收测试：检测产品是否符合最终用户的需求，不满足在用户的需求再迭代<h4 id="2-1-1、V模型优缺点"><a href="#2-1-1、V模型优缺点" class="headerlink" title="2.1.1、V模型优缺点"></a>2.1.1、V模型优缺点</h4></li>
 <li>优点：包含了底层测试（单元测试）和高层测试（系统测试）；阶段划分清晰，方便工作的整体把控</li>
 <li>缺点：测试阶段比较靠后，之前的的问题已经产生，修改不方便；v模型就是瀑布模型的变种，如果需求发生变化，必然要返工</li>
-<li>V模型改良：像瀑布模型那样，细化各个阶段，每个部分进行小型迭代。软件测试从需求分析阶段就进来，参与需求评审，产出测试大纲。根据概要设计和详细设计产出测试用例。开发人员交付代码后执行测试。<h3 id="2-2、W模型"><a href="#2-2、W模型" class="headerlink" title="2.2、W模型"></a>2.2、W模型</h3>开发一个v，测试一个v，开发和测试并行<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.2.2W%E6%A8%A1%E5%9E%8B.jpg" class="" title="Shell输出">
+<li>V模型改良：像瀑布模型那样，细化各个阶段，每个部分进行小型迭代。软件测试从需求分析阶段就进来，参与需求评审，产出测试大纲。根据概要设计和详细设计产出测试用例。开发人员交付代码后执行测试。<h3 id="2-2、W模型"><a href="#2-2、W模型" class="headerlink" title="2.2、W模型"></a>2.2、W模型</h3>开发一个v，测试一个v，开发和测试并行<img src="/2020/06/07/%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/%E4%BA%8C.2.2W%E6%A8%A1%E5%9E%8B.jpg" class="" title="W模型">
 
 </li>
 </ul>
@@ -491,7 +573,7 @@
 <li><p>test.sh：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#! &#x2F;bin&#x2F;bash</span><br><span class="line">#ls $1</span><br><span class="line">echo &quot;第一个参数：$1&quot;</span><br><span class="line">echo &quot;第二个参数：$2&quot;</span><br><span class="line">echo &quot;第三个参数：$3&quot;</span><br><span class="line">echo &quot;文件名：$0&quot;</span><br><span class="line">echo &quot;所有参数：$*&quot;</span><br><span class="line">echo &quot;参数个数：$#&quot;</span><br></pre></td></tr></table></figure>
 <p>执行：<code>sh test.sh 1 2 3 4</code></p>
-<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E5%8A%A8%E6%80%81%E4%BC%A0%E5%80%BC.png" class="" title="Shell输出">
+<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E5%8A%A8%E6%80%81%E4%BC%A0%E5%80%BC.png" class="" title="动态传值">
 
 </li>
 </ul>
@@ -544,30 +626,30 @@
 <li>注意：[]中有两个空格，两个空格中添加表达式</li>
 <li>返回boolean值（0为true，1为false）</li>
 <li>查看结果：$?</li>
-<li>-gt(&gt;)、-lt(&lt;)、-ge(&gt;=)、-le(&lt;=)、-eq(==)、-ne(!=)<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6.png" class="" title="Shell输出">
+<li>-gt(&gt;)、-lt(&lt;)、-ge(&gt;=)、-le(&lt;=)、-eq(==)、-ne(!=)<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6.png" class="" title="比较运算符">
 
 </li>
 </ul>
 <h4 id="3-1-3、逻辑运算符"><a href="#3-1-3、逻辑运算符" class="headerlink" title="3.1.3、逻辑运算符"></a>3.1.3、逻辑运算符</h4><ul>
 <li>格式：[ 表达式 ]</li>
 <li>返回boolean值（0为true，1为false）</li>
-<li>-a 与、-o 或、! 非<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6.png" class="" title="Shell输出">
+<li>-a 与、-o 或、! 非<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6.png" class="" title="逻辑运算符">
 
 </li>
 </ul>
 <h4 id="3-1-4、字符串比较"><a href="#3-1-4、字符串比较" class="headerlink" title="3.1.4、字符串比较"></a>3.1.4、字符串比较</h4><ul>
 <li>格式：[ 表达式 ]</li>
 <li>返回boolean值（0为true，1为false）</li>
-<li>==判断两个字符串内容是否一样<br>！=判断两个字符串内容是否不一样<br>-z判断单个字符串长度是不是0（判断字符串是不是空）<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%AF%94%E8%BE%83.png" class="" title="Shell输出">
+<li>==判断两个字符串内容是否一样<br>！=判断两个字符串内容是否不一样<br>-z判断单个字符串长度是不是0（判断字符串是不是空）<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%AF%94%E8%BE%83.png" class="" title="字符串比较">
 
 </li>
 </ul>
 <h4 id="3-1-5、文件判断"><a href="#3-1-5、文件判断" class="headerlink" title="3.1.5、文件判断"></a>3.1.5、文件判断</h4><ul>
 <li>格式：[ 表达式 ]</li>
 <li>返回boolean值（0为true，1为false）</li>
-<li>-d：判断是不是文件夹<br>-f：判断是不是文件<br>-e：判断是不是存在<br>变体：test –参数 路径 等价于[ -参数 路径 ]<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%96%87%E4%BB%B6%E5%88%A4%E6%96%AD1.png" class="" title="Shell输出">
-<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%96%87%E4%BB%B6%E5%88%A4%E6%96%AD2.png" class="" title="Shell输出">
-<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%96%87%E4%BB%B6%E5%88%A4%E6%96%AD3.png" class="" title="Shell输出">
+<li>-d：判断是不是文件夹<br>-f：判断是不是文件<br>-e：判断是不是存在<br>变体：test –参数 路径 等价于[ -参数 路径 ]<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%96%87%E4%BB%B6%E5%88%A4%E6%96%AD1.png" class="" title="文件判断">
+<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%96%87%E4%BB%B6%E5%88%A4%E6%96%AD2.png" class="" title="文件判断">
+<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%96%87%E4%BB%B6%E5%88%A4%E6%96%AD3.png" class="" title="文件判断">
 
 </li>
 </ul>
@@ -609,7 +691,7 @@
 <li><p>调用语法：参数传递</p>
 <ul>
 <li>函数名 参数1 参数2 ……<br>function02.sh：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#! &#x2F;bin&#x2F;bash</span><br><span class="line"># 有参数的函数</span><br><span class="line">getSun()&#123;</span><br><span class="line">  echo &quot;两个数字的和：$(($1+$2))&quot;</span><br><span class="line">  echo &quot;第一个参数：$1&quot;</span><br><span class="line">  echo &quot;第二个参数：$2&quot;</span><br><span class="line">  echo &quot;第十个参数：$10&quot; &#x2F;&#x2F;输出结果应该是第一个参数+0</span><br><span class="line">  echo &quot;文件名：$0&quot;</span><br><span class="line">  echo &quot;所有参数：$*&quot;</span><br><span class="line">  echo &quot;参数个数：$#&quot;</span><br><span class="line">&#125;</span><br><span class="line">#函数调用</span><br><span class="line">getSum 4 5 6 7 8 9 1 2 3 a b c</span><br></pre></td></tr></table></figure>
-<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%89%A7%E8%A1%8C%E6%9C%89%E5%8F%82%E6%95%B0%E5%87%BD%E6%95%B0.png" class="" title="Shell输出">
+<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%89%A7%E8%A1%8C%E6%9C%89%E5%8F%82%E6%95%B0%E5%87%BD%E6%95%B0.png" class="" title="执行有参数函数">
 
 </li>
 </ul>
@@ -631,11 +713,11 @@
 </ul>
 <p>function03.sh：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#! &#x2F;bin&#x2F;bash</span><br><span class="line">#带返回值的函数</span><br><span class="line">#函数声明</span><br><span class="line">getSum()&#123;</span><br><span class="line">  result&#x3D;$(($1+$2))</span><br><span class="line">  echo &quot;函数中的result：$&#123;result&#125;&quot;</span><br><span class="line">  return 0</span><br><span class="line">&#125;</span><br><span class="line"># 函数调用</span><br><span class="line">getSum 3 4</span><br><span class="line">echo &quot;函数调用的结果是：$?&quot;</span><br><span class="line">ehco &quot;函数外调用result：$&#123;result&#125;&quot;</span><br></pre></td></tr></table></figure>
-<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%89%A7%E8%A1%8C%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%E5%87%BD%E6%95%B0.png" class="" title="Shell输出">
+<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%89%A7%E8%A1%8C%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%E5%87%BD%E6%95%B0.png" class="" title="执行有返回值函数">
 
 <h3 id="4-5、练习"><a href="#4-5、练习" class="headerlink" title="4.5、练习"></a>4.5、练习</h3><h4 id="4-5-1、练习1"><a href="#4-5-1、练习1" class="headerlink" title="4.5.1、练习1"></a>4.5.1、练习1</h4><ul>
 <li>读取键盘录入，录入长方形的长和宽，编写求周长和面积的函数，调用并输出周长和面积的值<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#! &#x2F;bin&#x2F;bash</span><br><span class="line">#读取键盘录入长方形的长和宽</span><br><span class="line">read -p &quot;请输入长方形的长：&quot; length</span><br><span class="line">read -p &quot;请输入长方形的宽：&quot; width</span><br><span class="line"># 编写求周长和面积的函数</span><br><span class="line">getAllLength()&#123;</span><br><span class="line">  echo &quot;周长是$(($1+$2)*2))&quot;</span><br><span class="line">&#125;</span><br><span class="line">getArea()&#123;</span><br><span class="line">  echo &quot;面积是：$(($1*$2))&quot;</span><br><span class="line">&#125;</span><br><span class="line"># 调用函数，传入参数</span><br><span class="line">getAllLength &quot;$&#123;length&#125;&quot; &quot;$&#123;width&#125;&quot;</span><br><span class="line">getArea &quot;$&#123;length&#125;&quot; &quot;$&#123;width&#125;&quot;</span><br></pre></td></tr></table></figure>
-<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E5%87%BD%E6%95%B0%E7%BB%83%E4%B9%A0.png" class="" title="Shell输出">
+<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E5%87%BD%E6%95%B0%E7%BB%83%E4%B9%A0.png" class="" title="函数练习">
 
 </li>
 </ul>
@@ -742,39 +824,39 @@
 
 <h3 id="5-9、重定向"><a href="#5-9、重定向" class="headerlink" title="5.9、重定向"></a>5.9、重定向</h3><p>将命令产生的数据保存到磁盘文件。一种序列化（持久化）机制。</p>
 <h4 id="5-9-1、格式1"><a href="#5-9-1、格式1" class="headerlink" title="5.9.1、格式1"></a>5.9.1、格式1</h4><ul>
-<li>命令：1&gt;&gt; 磁盘文件（将正常结果输出到磁盘文件）<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E9%87%8D%E5%AE%9A%E5%90%91%E8%AF%AD%E6%B3%951.png" class="" title="Shell输出">
+<li>命令：1&gt;&gt; 磁盘文件（将正常结果输出到磁盘文件）<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E9%87%8D%E5%AE%9A%E5%90%91%E8%AF%AD%E6%B3%951.png" class="" title="重定向语法">
 
 </li>
 </ul>
 <h4 id="5-9-2、格式2"><a href="#5-9-2、格式2" class="headerlink" title="5.9.2、格式2"></a>5.9.2、格式2</h4><ul>
-<li>命令：2&gt;&gt; 磁盘文件（将错误结果输出到磁盘文件）<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E9%87%8D%E5%AE%9A%E5%90%91%E8%AF%AD%E6%B3%952.png" class="" title="Shell输出">
+<li>命令：2&gt;&gt; 磁盘文件（将错误结果输出到磁盘文件）<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E9%87%8D%E5%AE%9A%E5%90%91%E8%AF%AD%E6%B3%952.png" class="" title="重定向语法">
 
 </li>
 </ul>
 <h3 id="5-10、数组"><a href="#5-10、数组" class="headerlink" title="5.10、数组"></a>5.10、数组</h3><p>数组也是变量，但是是特殊的变量，一般变量只能存储一个值，而数组可以存储多个值</p>
 <h4 id="5-10-1、数组创建"><a href="#5-10-1、数组创建" class="headerlink" title="5.10.1、数组创建"></a>5.10.1、数组创建</h4><p>变量名=(值1 值2 值3 ……)</p>
-<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA.png" class="" title="Shell输出">
+<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA.png" class="" title="重定向语法">
 
 <h4 id="5-10-2、数组查询"><a href="#5-10-2、数组查询" class="headerlink" title="5.10.2、数组查询"></a>5.10.2、数组查询</h4><ul>
 <li><p>${数组名[索引]}   //索引从0开始</p>
-<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%9F%A5%E8%AF%A2%E6%9F%90%E4%B8%AA%E5%85%83%E7%B4%A0.png" class="" title="Shell输出">
+<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%9F%A5%E8%AF%A2%E6%9F%90%E4%B8%AA%E5%85%83%E7%B4%A0.png" class="" title="重定向语法">
 </li>
 <li><p>查询所有元素：${数组名[*]}  或  ${数组名[@]}</p>
-<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0.png" class="" title="Shell输出">
+<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0.png" class="" title="查询所有元素">
 
 
 </li>
 </ul>
 <ul>
-<li>查询元素个数：在查询所有元素基础上，数组名前面加上#<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%9F%A5%E8%AF%A2%E5%85%83%E7%B4%A0%E4%B8%AA%E6%95%B0.png" class="" title="Shell输出">
+<li>查询元素个数：在查询所有元素基础上，数组名前面加上#<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%9F%A5%E8%AF%A2%E5%85%83%E7%B4%A0%E4%B8%AA%E6%95%B0.png" class="" title="查询元素个数">
 
 </li>
 </ul>
 <h4 id="5-10-3、数组修改"><a href="#5-10-3、数组修改" class="headerlink" title="5.10.3、数组修改"></a>5.10.3、数组修改</h4><p>变量名[索引]=新值</p>
-<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%95%B0%E7%BB%84%E4%BF%AE%E6%94%B9.png" class="" title="Shell输出">
+<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%95%B0%E7%BB%84%E4%BF%AE%E6%94%B9.png" class="" title="数组修改">
 
 <h4 id="5-10-4、数组删除"><a href="#5-10-4、数组删除" class="headerlink" title="5.10.4、数组删除"></a>5.10.4、数组删除</h4><p>unset 数组名</p>
-<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%95%B0%E7%BB%84%E5%88%A0%E9%99%A4.png" class="" title="Shell输出">
+<img src="/2020/06/01/Shell%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/%E6%95%B0%E7%BB%84%E5%88%A0%E9%99%A4.png" class="" title="数组删除">
 
 <h4 id="5-10-5、数组应用"><a href="#5-10-5、数组应用" class="headerlink" title="5.10.5、数组应用"></a>5.10.5、数组应用</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#! &#x2F;bin&#x2F;bash</span><br><span class="line">#遍历数组</span><br><span class="line">myArr&#x3D;(hello python c c++ java)</span><br><span class="line">for ele in $&#123;myArr[*]&#125;</span><br><span class="line">do</span><br><span class="line">	echo $&#123;ele&#125;</span><br><span class="line">done</span><br></pre></td></tr></table></figure>]]></content>
       <tags>

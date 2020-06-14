@@ -121,18 +121,6 @@
       </tags>
   </entry>
   <entry>
-    <title>使用hexo框架+ayer主题搭建博客</title>
-    <url>/2020/06/01/%E4%BD%BF%E7%94%A8hexo%E6%A1%86%E6%9E%B6-ayer%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="Loading……"><a href="#Loading……" class="headerlink" title="Loading……"></a>Loading……</h1>]]></content>
-      <categories>
-        <category>搭建博客</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>gitalk</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2020/05/28/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
@@ -149,6 +137,33 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>使用hexo框架+ayer主题搭建博客</title>
+    <url>/2020/06/01/%E4%BD%BF%E7%94%A8hexo%E6%A1%86%E6%9E%B6-ayer%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h1 id="Loading……"><a href="#Loading……" class="headerlink" title="Loading……"></a>Loading……</h1>]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>gitalk</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第一篇博客</title>
+    <url>/2020/05/29/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
+<hr>
+<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
+<hr>
+<h2 id="终"><a href="#终" class="headerlink" title="终"></a>终</h2>]]></content>
+      <categories>
+        <category>测试项</category>
+      </categories>
+      <tags>
+        <tag>测试项</tag>
+      </tags>
   </entry>
   <entry>
     <title>测试基础</title>
@@ -387,21 +402,6 @@
       </categories>
       <tags>
         <tag>Test</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>第一篇博客</title>
-    <url>/2020/05/29/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
-<hr>
-<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
-<hr>
-<h2 id="终"><a href="#终" class="headerlink" title="终"></a>终</h2>]]></content>
-      <categories>
-        <category>测试项</category>
-      </categories>
-      <tags>
-        <tag>测试项</tag>
       </tags>
   </entry>
   <entry>

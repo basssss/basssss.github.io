@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="个人博客,知识分享,计算机,软件,hexo,ayer" />
+   
+  <meta name="description" content="个人博客|知识分享|计算机|软件|hexo|ayer" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <!-- 百度收录 -->
+  <meta name="baidu-site-verification" content="9uMJli0Az6" />
+  <title>
+    hexo5分钟免费搭建个人博客教程 |  bacotamp 个人博客
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/images/ayer-side.jpeg" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '&lt;%= theme.google_analytics %&gt;', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+  
+<script>
+var _hmt = _hmt || [];
+(function() {
+	var hm = document.createElement("script");
+	hm.src = "https://hm.baidu.com/hm.js?&lt;%= theme.baidu_analytics %&gt;";
+	var s = document.getElementsByTagName("script")[0]; 
+	s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+<link rel="alternate" href="/atom.xml" title="bacotamp 个人博客" type="application/atom+xml">
+</head>
+
+</html>
+
+<body>
+  
+  <div id="app">
+    <main class="content on">
+      <section class="outer">
+  <article id="post-5分钟使用hexo免费搭建个人博" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  hexo5分钟免费搭建个人博客教程
+</h1>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/06/14/5%E5%88%86%E9%92%9F%E4%BD%BF%E7%94%A8hexo%E5%85%8D%E8%B4%B9%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A/" class="article-date">
+  <time datetime="2020-06-14T12:28:18.000Z" itemprop="datePublished">2020-06-14</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">博客搭建</a>
+  </div>
+
+      
+      
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">1.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">6 min</span>
+        </span>
+    </span>
+</div>
+
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>（第一次搭建个人博客，记录一下搭建方法还有那些踩过的坑）</p>
+<h4 id="环境：windows10"><a href="#环境：windows10" class="headerlink" title="环境：windows10"></a>环境：windows10</h4><h4 id="前提："><a href="#前提：" class="headerlink" title="前提："></a>前提：</h4><h5 id="1-安装好node-js-和-Git"><a href="#1-安装好node-js-和-Git" class="headerlink" title="1.安装好node.js 和 Git"></a>1.安装好node.js 和 Git</h5><h5 id="2-安装淘宝的cnpm"><a href="#2-安装淘宝的cnpm" class="headerlink" title="2.安装淘宝的cnpm"></a>2.安装淘宝的cnpm</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry&#x3D;http:&#x2F;&#x2F;registry.npm.taobao.org</span><br><span class="line">cnpm -v  &#x2F;&#x2F;查看安装版本</span><br></pre></td></tr></table></figure>
+<h2 id="一、使用hexo框架搭建静态博客"><a href="#一、使用hexo框架搭建静态博客" class="headerlink" title="一、使用hexo框架搭建静态博客"></a>一、使用hexo框架搭建静态博客</h2><h3 id="1-安装-hexo-框架"><a href="#1-安装-hexo-框架" class="headerlink" title="1.安装 hexo 框架"></a>1.安装 hexo 框架</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br><span class="line">hexo -v   &#x2F;&#x2F;查看hexo版本</span><br></pre></td></tr></table></figure>
+<h3 id="2-在磁盘中新建-blog-文件夹"><a href="#2-在磁盘中新建-blog-文件夹" class="headerlink" title="2.在磁盘中新建 blog 文件夹"></a>2.在磁盘中新建 blog 文件夹</h3><p>在 blog 文件夹中打开 Git Bash，输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init  &#x2F;&#x2F;新建一个网站</span><br></pre></td></tr></table></figure>
+<h3 id="3-启动服务器"><a href="#3-启动服务器" class="headerlink" title="3.启动服务器"></a>3.启动服务器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p>打开浏览器中，输入 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 访问博客<br>ctrl+c 关闭服务器</p>
+<h3 id="4-新建一篇博客"><a href="#4-新建一篇博客" class="headerlink" title="4.新建一篇博客"></a>4.新建一篇博客</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;第一篇博客&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>文件路径：D:\blog\source_posts\第一篇博客.md</li>
+<li>在vscode中打开.md文件、编辑</li>
+</ul>
+<h3 id="5-清除缓存文件"><a href="#5-清除缓存文件" class="headerlink" title="5.清除缓存文件"></a>5.清除缓存文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+<p>建议每次生成站点或部署之前都用该命令清理一下缓存</p>
+<h3 id="6-生成静态文件"><a href="#6-生成静态文件" class="headerlink" title="6.生成静态文件"></a>6.生成静态文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="7-再次启动服务器"><a href="#7-再次启动服务器" class="headerlink" title="7.再次启动服务器"></a>7.再次启动服务器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p>在刚才打开的浏览器博客页面刷新，出现新写的文章</p>
+<h3 id="8-把博客部署到Github"><a href="#8-把博客部署到Github" class="headerlink" title="8.把博客部署到Github"></a>8.把博客部署到Github</h3><ul>
+<li>打开你的Github——&gt;新建仓库，仓库名必须是:你的github名字.github.io.git</li>
+<li>回到命令行，ctrl+c断开hexo<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure></li>
+<li>设置 _config.yml 文件:最下方 #Deployment 的 deploy 修改：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">type: git</span><br><span class="line">repo: git@github.com:basssss&#x2F;basssss.github.io.git（仓库地址）</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure></li>
+<li>部署到 Github<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="9-进入博客页面"><a href="#9-进入博客页面" class="headerlink" title="9.进入博客页面"></a>9.进入博客页面</h3><h2 id="浏览器中输入地址：basssss-github-io跳转到博客页面"><a href="#浏览器中输入地址：basssss-github-io跳转到博客页面" class="headerlink" title="浏览器中输入地址：basssss.github.io跳转到博客页面"></a>浏览器中输入地址：basssss.github.io跳转到博客页面</h2><p>至此hexo框架搭建静态博客完毕<br>参考资料</p>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1Yb411a7ty" target="_blank" rel="noopener">CodeSheep</a></li>
+<li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">hexo文档</a></li>
+</ul>
+<hr>
+<h2 id="二、安装ayer主题"><a href="#二、安装ayer主题" class="headerlink" title="二、安装ayer主题"></a>二、安装ayer主题</h2><h3 id="1-下载主题"><a href="#1-下载主题" class="headerlink" title="1.下载主题"></a>1.下载主题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;Shen-Yu&#x2F;hexo-theme-ayer.git themes&#x2F;ayer</span><br></pre></td></tr></table></figure>
+<h3 id="2-设置-config-yml文件"><a href="#2-设置-config-yml文件" class="headerlink" title="2.设置_config.yml文件"></a>2.设置_config.yml文件</h3><p>打开_config.yml文件，找到theme修改为ayer保存退出。</p>
+<h3 id="3-新增menu"><a href="#3-新增menu" class="headerlink" title="3.新增menu"></a>3.新增menu</h3><p>仿照分类和标签的方式，新增menu如”关于我”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page AboutMe</span><br></pre></td></tr></table></figure>
+<hr>
+<p>至此ayer主题安装完毕<br>参考资料（作者文档中的安装步骤写的很详细，看文档就好）</p>
+<ul>
+<li><a href="https://shen-yu.gitee.io/2019/ayer/" target="_blank" rel="noopener">ayer文档</a></li>
+</ul>
+<hr>
+<h2 id="三、安装Gitalk评论插件"><a href="#三、安装Gitalk评论插件" class="headerlink" title="三、安装Gitalk评论插件"></a>三、安装Gitalk评论插件</h2><h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1.安装"></a>1.安装</h3><ul>
+<li><a href="https://github.com/gitalk/gitalk/blob/master/readme-cn.md" target="_blank" rel="noopener">Gitalk安装步骤</a></li>
+<li>直接在ayer的_config.yml文件中修改就行，不需要再添加div代码块</li>
+<li>部署好后要登录github初始化才能评论</li>
+</ul>
+<h3 id="2-在自己新建的menu页面中安装Gitalk评论插件"><a href="#2-在自己新建的menu页面中安装Gitalk评论插件" class="headerlink" title="2.在自己新建的menu页面中安装Gitalk评论插件"></a>2.在自己新建的menu页面中安装Gitalk评论插件</h3><p>ayer主题默认在主页和文章底部添加Gitalk，在自己新增的页面如友情链接link页面中安装Gitalk需要修改代码</p>
+<ul>
+<li>在D:\blog\source\links\index.md<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;gitalk@1&#x2F;dist&#x2F;gitalk.css&quot;&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;gitalk@1&#x2F;dist&#x2F;gitalk.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure></li>
+<li>在D:\blog\themes\ayer\layout_partial\article.ejs文件中添加一个容器，用下面的 Javascript 代码来生成 gitalk 插件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;gitalk-container&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">var gitalk &#x3D; new Gitalk(&#123;</span><br><span class="line">  clientID: &#39;GitHub Application Client ID&#39;,</span><br><span class="line">  clientSecret: &#39;GitHub Application Client Secret&#39;,</span><br><span class="line">  repo: &#39;GitHub repo&#39;,</span><br><span class="line">  owner: &#39;GitHub repo owner&#39;,</span><br><span class="line">  admin: [&#39;GitHub repo owner and collaborators, only these guys can initialize github issues&#39;],</span><br><span class="line">  id: location.pathname,      &#x2F;&#x2F; Ensure uniqueness and length less than 50</span><br><span class="line">  distractionFreeMode: false  &#x2F;&#x2F; Facebook-like distraction free mode</span><br><span class="line">&#125;)</span><br><span class="line">gitalk.render(&#39;gitalk-container&#39;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>至此Gitalk评论插件安装完毕<br>参考资料：<a href="https://github.com/gitalk/gitalk/blob/master/readme-cn.md" target="_blank" rel="noopener">Gitalk</a></p>
+<hr>
+<h2 id="四、添加友情链接页面"><a href="#四、添加友情链接页面" class="headerlink" title="四、添加友情链接页面"></a>四、添加友情链接页面</h2><p>原主题是没有友链页面的，需要自己写代码，这是我的<br>在D:\blog\source\links下新建文件夹LinkImage存放图片，新建文件link.css</p>
+<ul>
+<li>index.md<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;ul class&#x3D;&quot;allLinks&quot;&gt;</span><br><span class="line">        &lt;li&gt;</span><br><span class="line">            &lt;img src&#x3D;&quot;图片地址&quot; alt&#x3D;&quot;图片描述&quot;&gt;</span><br><span class="line">            &lt;a href&#x3D;&quot;友情链接地址&quot;&gt;博客名&lt;&#x2F;a&gt;</span><br><span class="line">        &lt;&#x2F;li&gt;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br></pre></td></tr></table></figure></li>
+<li>link.css<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">.allLinks &#123;</span><br><span class="line">    display: -webkit-flex; &#x2F;* Safari *&#x2F;</span><br><span class="line">    display: flex;</span><br><span class="line">    flex-wrap: wrap;</span><br><span class="line">    justify-content: center;</span><br><span class="line">&#125;</span><br><span class="line">.allLinks li &#123;</span><br><span class="line">    list-style: none;</span><br><span class="line">    display: inline-flex;</span><br><span class="line">    border-radius: 1rem;</span><br><span class="line">    width: 20rem;</span><br><span class="line">    height: 8rem;</span><br><span class="line">    margin-top: 3rem;</span><br><span class="line">    margin-right:2rem;</span><br><span class="line">    overflow: hidden; &#x2F;*超出边界部分隐藏*&#x2F;</span><br><span class="line">    background-color: #403e3e;</span><br><span class="line">&#125;</span><br><span class="line">.allLinks li img &#123;</span><br><span class="line">    width:6rem;</span><br><span class="line">    height:6rem;</span><br><span class="line">    border-radius: 50%;</span><br><span class="line">    margin: 1rem;</span><br><span class="line">&#125;</span><br><span class="line">.allLinks li a &#123;</span><br><span class="line">    width: 12rem;</span><br><span class="line">    padding-top: 10%;</span><br><span class="line">    text-align: center;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">    text-decoration: none;</span><br><span class="line">    font-size: 1.7rem;</span><br><span class="line">    font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, 微软雅黑, Arial, sans-serif;</span><br><span class="line">    color:#bbb;</span><br><span class="line">    word-wrap: break-word; &#x2F;*文字换行*&#x2F;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="五、hexo给文章添加分类和标签"><a href="#五、hexo给文章添加分类和标签" class="headerlink" title="五、hexo给文章添加分类和标签"></a>五、hexo给文章添加分类和标签</h2><h3 id="1-添加分类"><a href="#1-添加分类" class="headerlink" title="1.添加分类"></a>1.添加分类</h3><ul>
+<li>在D:\blog\source\categories\index.md中添加 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">type: &quot;categories&quot;</span><br><span class="line">layout: &quot;categories&quot;</span><br></pre></td></tr></table></figure></li>
+<li>需要添加分类的文章中添加<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">categories: </span><br><span class="line">    - 分类名</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="2-添加标签"><a href="#2-添加标签" class="headerlink" title="2.添加标签"></a>2.添加标签</h3><ul>
+<li>在D:\blog\source\tags\index.md中添加<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">type: &quot;tags&quot;</span><br><span class="line">layout: &quot;tags&quot;</span><br></pre></td></tr></table></figure></li>
+<li>需要添加标签的文章中添加<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tags:</span><br><span class="line">    - 标签名</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="六、修改Github-ribbon样式"><a href="#六、修改Github-ribbon样式" class="headerlink" title="六、修改Github ribbon样式"></a>六、修改Github ribbon样式</h2><p>修改D:\blog\themes\ayer\layout_partial\ayer.ejs的代码，将原来的a标签修改为在<a href="http://tholman.com/github-corners/" target="_blank" rel="noopener">Github ribbon</a>中选中样式的代码，并修改所有的”github-corner”为”forkMe”</p>
+
+
+<h2 id="七、hexo框架插入图片"><a href="#七、hexo框架插入图片" class="headerlink" title="七、hexo框架插入图片"></a>七、hexo框架插入图片</h2><p>在写的博客中插入图片时，不能用普通的Markdown语法，参考<a href="https://hexo.io/zh-cn/docs/asset-folders" target="_blank" rel="noopener">hexo文档</a>，应该：</p>
+<ul>
+<li>安装插件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install https:&#x2F;&#x2F;github.com&#x2F;CodeFalling&#x2F;hexo-asset-image -- save</span><br></pre></td></tr></table></figure></li>
+<li>将 config.yml 文件中的 post_asset_folder 选项设为 true</li>
+<li>创建新文章和同名文件夹，将图片资源放到文件夹中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure></li>
+<li>在文档中需要插入图片的地方<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img 图片名.jpg 描述语句 %&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
+      
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        Donate
+      </div>
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+        <div class="declare">
+          <ul class="post-copyright">
+            <li>
+              <i class="ri-copyright-line"></i>
+              <strong>Copyright： </strong>
+              Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+            </li>
+          </ul>
+        </div>
+        
+    <footer class="article-footer">
+      
+          
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/06/14/5%E5%88%86%E9%92%9F%E4%BD%BF%E7%94%A8hexo%E5%85%8D%E8%B4%B9%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/coding/" rel="tag">coding</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gitalk/" rel="tag">gitalk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/" rel="tag">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+
+
+    </footer>
+
+    <!-- 添加gitalk模块 -->
+    <div id="gitalk-container"></div>
+    <script type="text/javascript">
+        var gitalk = new Gitalk({
+        clientID: 'd4d169252c8910f83133',
+        clientSecret: '42ec84bd600a6a2370858b87b84fe849d2c1bede',
+        repo: 'Blog-s-Comments',
+        owner: 'basssss',
+        admin: 'basssss',
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+        gitalk.render('gitalk-container')
+    </script>
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/06/14/hexo5%E5%88%86%E9%92%9F%E5%85%8D%E8%B4%B9%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">hexo免费搭建个人博客详细步骤</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+
+  
+  
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.css">
+
+
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.6.2/dist/gitalk.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: 'd4d169252c8910f83133',
+    clientSecret: '42ec84bd600a6a2370858b87b84fe849d2c1bede',
+    repo: 'Blog-s-Comments',
+    owner: 'basssss',
+    admin: ['basssss'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+  
+  
+  
+
+</article>
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> bacotamp
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        Powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="division">|</span>
+        Theme - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+        <li>
+          <a href="http://www.beian.miit.gov.cn/" target="_black" style="color: rgb(64, 62, 62);">鄂ICP备19005613号</a>
+        </li>
+        
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.jpeg" alt="bacotamp 个人博客"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">首页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/links">友情链接</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/aboutme">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>二维码待定......</p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Subtitle -->
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+
+    
+  </div>
+</body>
+
+</html>

@@ -139,7 +139,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>hexo免费搭建个人博客详细步骤</title>
+    <title>hexo5分钟免费搭建个人博客教程</title>
     <url>/2020/06/14/hexo5%E5%88%86%E9%92%9F%E5%85%8D%E8%B4%B9%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/</url>
     <content><![CDATA[<p>（第一次搭建个人博客，记录一下搭建方法还有那些踩过的坑）</p>
 <h4 id="环境：windows10"><a href="#环境：windows10" class="headerlink" title="环境：windows10"></a>环境：windows10</h4><h4 id="前提："><a href="#前提：" class="headerlink" title="前提："></a>前提：</h4><h5 id="1-安装好node-js-和-Git"><a href="#1-安装好node-js-和-Git" class="headerlink" title="1.安装好node.js 和 Git"></a>1.安装好node.js 和 Git</h5><h5 id="2-安装淘宝的cnpm"><a href="#2-安装淘宝的cnpm" class="headerlink" title="2.安装淘宝的cnpm"></a>2.安装淘宝的cnpm</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry&#x3D;http:&#x2F;&#x2F;registry.npm.taobao.org</span><br><span class="line">cnpm -v  &#x2F;&#x2F;查看安装版本</span><br></pre></td></tr></table></figure>

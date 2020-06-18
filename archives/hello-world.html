@@ -15,7 +15,7 @@
   <!-- 百度收录 -->
   <meta name="baidu-site-verification" content="9uMJli0Az6" />
   <title>
-    Linux常用命令全集 |  bacotamp 个人博客
+    Hello World |  bacotamp 个人博客
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -72,7 +72,7 @@ var _hmt = _hmt || [];
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-Linux常用命令全集" class="article article-type-post" itemscope
+  <article id="post-hello-world" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -80,7 +80,7 @@ var _hmt = _hmt || [];
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Linux常用命令全集
+  Hello World
 </h1>
  
 
@@ -89,8 +89,8 @@ var _hmt = _hmt || [];
 
     
     <div class="article-meta">
-      <a href="/2020/05/31/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%85%A8%E9%9B%86/" class="article-date">
-  <time datetime="2020-05-31T07:36:17.000Z" itemprop="datePublished">2020-05-31</time>
+      <a href="/archives/hello-world.html" class="article-date">
+  <time datetime="2020-05-28T15:47:59.351Z" itemprop="datePublished">2020-05-28</time>
 </a>
       
       
@@ -100,7 +100,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">863</span>
+            <span class="post-count">73</span>
         </span>
     </span>
 
@@ -109,7 +109,7 @@ var _hmt = _hmt || [];
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">3 min</span>
+            <span class="post-count">1 min</span>
         </span>
     </span>
 </div>
@@ -134,118 +134,19 @@ var _hmt = _hmt || [];
       
 
       
-      <h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>Linux + CentOS6.5</p>
-<hr>
-<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><ol>
-<li><p>新建文件夹：mkdir 文件夹名</p>
-</li>
-<li><p>新建文件： touch 新建文本.txt</p>
-</li>
-<li><p>复制：cp 新建文本.txt 目标目录</p>
-</li>
-<li><p>剪切/移动：mv 新建文本.txt 目标目录</p>
-</li>
-<li><p>重命名：mv 新建文本.txt 重命名.txt</p>
-</li>
-<li><p>列出当前文件夹中所有文件</p>
-<ul>
-<li>ls : 只列出文件名或目录名</li>
-<li>ls -l(ll) ：列出文件和目录详细信息</li>
-</ul>
-</li>
-<li><p>查看当前所在路径：pwd</p>
-</li>
-<li><p>切换目录 cd </p>
-<ul>
-<li>cd .当前文件夹</li>
-<li>cd ..上级文件夹</li>
-<li>cd ~返回用户文件夹</li>
-<li>cd /进入根目录</li>
-</ul>
-</li>
-<li><p>删除：rm</p>
-<ul>
-<li>rm 删除文件（无提示）（可恢复）</li>
-<li>rm -f 强制删除文件（无提示）</li>
-<li>rm -i 交互式删除文件（有提示）</li>
-<li>rm -r 递归删除文件和目录（慎用）</li>
-<li>rm -rf* 删除当前目录下所有（慎用）</li>
-</ul>
-</li>
-<li><p>删除一个空目录：rmdir 空目录名</p>
-</li>
-</ol>
-<hr>
-<h1 id="文本编辑"><a href="#文本编辑" class="headerlink" title="文本编辑"></a>文本编辑</h1><h2 id="gedit"><a href="#gedit" class="headerlink" title="gedit"></a>gedit</h2><p>gedit 文件名.txt 使用记事本打开文件</p>
-<h2 id="vi-vim"><a href="#vi-vim" class="headerlink" title="vi/vim"></a>vi/vim</h2><p>i 输入<br>esc+:q退出<br>esc+:wq保存并退出<br>esc+:q!不保存强制退出</p>
-<hr>
-<h1 id="读取文档"><a href="#读取文档" class="headerlink" title="读取文档"></a>读取文档</h1><ol>
-<li>cat 文件名：一次性读取全部文件内容（读取内容比较少的文件）</li>
-<li>more 文件名：逐步读取文件内容、分页（读取内容比较多的文件）</li>
-<li>tail （读取动态变化的文件）<ul>
-<li><strong>tail -f 文件名：实时刷新<u>日志</u>，读取最新内容</strong></li>
-<li>tail -c 字节数 文件名：输出最后n个字节</li>
-<li>tail -n 行数 文件名：显示文件最后x行内容</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h1 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h1><p>查找文件中符合条件的字符串</p>
-<ul>
-<li>grep -i 字符 文件名.txt：忽略字符大小写的差别，查出包含匹配文本的所有行</li>
-<li>grep -v 字符 文件名.txt：反向匹配，查出不包含匹配文本的所有行</li>
-</ul>
-<hr>
-<h1 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h1><h2 id="文件权限-rwxrwxrwx"><a href="#文件权限-rwxrwxrwx" class="headerlink" title="文件权限 -rwxrwxrwx"></a>文件权限 -rwxrwxrwx</h2><p>每种身份(owner/group/others)各自的三个权限(r/w/x)分数是需要累加的，例如当权限为： [-rwxrwx—] 分数则是770：<br>owner = rwx = 4+2+1 = 7<br>group = rwx = 4+2+1 = 7<br>others= — = 0+0+0 = 0</p>
-<h2 id="权限变更命令"><a href="#权限变更命令" class="headerlink" title="权限变更命令"></a>权限变更命令</h2><ol>
-<li><p>方法一：<code>chmod -R xyz 文件或目录</code><br>xyz : 就是刚刚提到的数字类型的权限属性，为 rwx 属性数值的相加<br> -R : 进行递归的持续变更，即连同次目录下的所有文件都会变更<br>举例来说，如果要将.bashrc这个文件所有的权限都设定启用，那么命令<code>chmod 777 .bashrc</code></p>
-</li>
-<li><p>方法二<br>将文件权限设置为 -rwxr-xr– ，可以使用 <code>chmod u=rwx,g=rx,o=r 文件名</code></p>
-</li>
-</ol>
-<hr>
-<h1 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h1><ul>
-<li>‘&gt;’：输出重定向命令<br>  <code>cat old.txt &gt; new.txt</code> 将old.txt内容复制给new.txt</li>
-<li>‘&gt;&gt;’：输出重定向追加到文件的底部<br>  <code>cat old.txt &gt;&gt; new.txt</code> 将old.txt内容追加到new.txt中，若没有目标文件则新建文件</li>
-</ul>
-<hr>
-<h1 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h1><p>把左边命令返回的结果交给右边命令处理<br><code>ps -ef | grep python</code> 搜素含有python字符串的进程</p>
-<hr>
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ol>
-<li><p>ps：列出当前终端下的相关进程</p>
-<ul>
-<li>ps -ef：显示所有命令</li>
-</ul>
-</li>
-<li><p>杀死进程</p>
-<ul>
-<li>kill PID：杀死进程</li>
-<li>kill -9 PID：彻底杀死进程，当使用kill无法将进程杀死才使用</li>
-</ul>
-</li>
-<li><p>ifconfig：查看网络情况</p>
-</li>
-<li><p>取别名</p>
-<ul>
-<li>alias 别名=命令（如alias is=ifconfig，is可以作为ifconfig使用）</li>
-<li>unalias 别名：取消别名</li>
-</ul>
-</li>
-<li><p>ping：测试网络连通</p>
-</li>
-<li><p>clear：清屏</p>
-</li>
-<li><p>hostname：查看主机名称</p>
-</li>
-<li><p>历史命令</p>
-<ul>
-<li>history：打印历史命令</li>
-<li>history -c：清除历史命令</li>
-</ul>
-</li>
-<li><p>service network restart：重启网卡</p>
-</li>
-</ol>
+      <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
       
       <!-- reward -->
@@ -314,15 +215,13 @@ var _hmt = _hmt || [];
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/05/31/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%85%A8%E9%9B%86/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/archives/hello-world.html" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li></ul>
-
 
     </footer>
 
@@ -346,20 +245,15 @@ var _hmt = _hmt || [];
   
   <nav class="article-nav">
     
-      <a href="/2020/06/01/Shell%E8%84%9A%E6%9C%AC%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" class="article-nav-link">
+      <a href="/archives/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%85%A8%E9%9B%86.html" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            Shell脚本基本命令
+            Linux常用命令全集
           
         </div>
       </a>
     
-    
-      <a href="/2020/05/28/hello-world/" class="article-nav-link">
-        <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Hello World</div>
-      </a>
     
   </nav>
 
